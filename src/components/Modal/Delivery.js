@@ -12,13 +12,13 @@ const theme = createTheme({
     primary: {
       light: "#f8db57",
       main: "#F7D22D",
-      dark: "#ac931f",
+      dark: "none",
       contrastText: "#000",
     },
     secondary: {
       ligth: "#f5f5f8",
       main: "#F3F3F7",
-      dark: "#aaaaac",
+      dark: "none",
 
       contrastText: "#828792",
     },
@@ -118,8 +118,8 @@ export default function Delivery() {
             </Grid>
             <TextField variant="outlined" size="small" fullWidth sx={{marginTop: 2}} label="Название адреса"/>
             <Typography variant='body1' color='secondary.dark' sx={{marginTop: 1, fontWeight: 500}}>Например, <span style={{color: '#F7D22D'}}>Дом</span> или <span style={{color: '#F7D22D'}}>Работа</span></Typography>
-            <TextField variant="outlined" size="small" fullWidth sx={{marginTop: 1}} label="Комментарий к адресу" multiline maxRows={5}/>
-            <Button variant="contained" sx={{width: 210, padding: "10px", fontWeight: 700, marginTop: 5}}>
+            <TextField variant="outlined" size="small" fullWidth sx={{marginTop: 1}} label="Комментарий к адресу" multiline minRows={3}/>
+            <Button variant="contained" sx={{width: 210, padding: "10px", fontWeight: 700, marginTop: 4}}>
               Подтевердить адрес
             </Button>
           </Box>
