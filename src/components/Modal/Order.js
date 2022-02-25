@@ -7,12 +7,11 @@ import Typography from "@mui/material/Typography";
 import CloseIcon from "@mui/icons-material/Close";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import { CardContent, CardMedia } from "@mui/material";
 import testImg from './img/image.png'
 import img1 from './img/image 8.png'
 import img2 from './img/image 9.png'
 import img3 from './img/image 10.png'
-import { Card, CardContent, CardMedia } from "@mui/material";
-import { padding } from "@mui/system";
 
 const theme = createTheme({
   palette: {
