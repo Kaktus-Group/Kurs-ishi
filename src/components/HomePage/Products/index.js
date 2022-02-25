@@ -5,10 +5,10 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import firstPiz from "../../../assets/images/firstPizza.png";
-import secPiz from "../../../assets/images/secondPizza.png";
-import thirdPiz from "../../../assets/images/thirdPizza.png";
-import fourthPiz from "../../../assets/images/fourthPizza.png";
+import firstPiz from "../../../assets/images/NEW.svg";
+import secPiz from "../../../assets/images/NewPicture.svg";
+import thirdPiz from "../../../assets/images/Pizza.svg";
+import fourthPiz from "../../../assets/images/PiizzaSimple.svg";
 import { CardActionArea, Container } from "@mui/material";
 
 function Products() {
@@ -78,6 +78,9 @@ function Products() {
       btnInfo: "В корзину",
     },
   ]);
+  console.log("====================================");
+  console.log(card);
+  console.log("====================================");
   return (
     <div>
       <Container>

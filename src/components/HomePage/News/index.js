@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 import React, { useState } from "react";
-import pitsa from "../../../assets/images/pitsa.png";
+import pitsa from "../../../assets/images/buttonpPiz.svg";
 
 function News() {
   return (

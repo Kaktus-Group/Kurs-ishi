@@ -1,0 +1,42 @@
+import React from "react";
+import Checkbox from "@mui/material/Checkbox";
+import { Container, Radio, Typography } from "@mui/material";
+import { yellow } from "@mui/material/colors";
+
+function Order() {
+  const [selectedValue, setSelectedValue] = React.useState("a");
+  const handleChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
+
+  const controlProps = (item) => ({
+    checked: selectedValue === item,
+    onChange: handleChange,
+    value: item,
+    name: "color-radio-button-demo",
+    inputProps: { "aria-label": item },
+  });
+  return (
+    <div>
+      <Container sx={{ my: 4, display: "flex", alignItems: "center", gap: 1 }}>
+        <Radio
+          {...controlProps("e")}
+          defaultChecked
+          sx={{
+            color: yellow[800],
+            "&.Mui-checked": {
+              color: yellow[600],
+            },
+          }}
+        />
+        <Typography
+          sx={{ fontSize: "15px", color: "#231F20", fontWeight: "700" }}
+        >
+          Сообщать о бонусах, акциях и новых продуктах
+        </Typography>
+      </Container>
+    </div>
+  );
+}
+
+export default Order;

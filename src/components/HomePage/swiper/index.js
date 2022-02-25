@@ -1,8 +1,8 @@
 import { Container } from "@mui/material";
 import React, { Component } from "react";
 import Slider from "react-slick";
-import first from "../../../assets/images/SlickFirst.png";
-import second from "../../../assets/images/slickSecond.png";
+import first from "../../../assets/images/swipperFir.svg";
+import second from "../../../assets/images/swipperSec.svg";
 export default class CenterMode extends Component {
   render() {
     const settings = {
