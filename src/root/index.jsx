@@ -6,7 +6,7 @@ import HomePage from "../components/HomePage";
 function Root() {
   return (
     <div>
-      <HomePage />
+      <OrderPage />
     </div>
   );
 }
