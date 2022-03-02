@@ -9,7 +9,7 @@ import React from "react";
 function Inputs() {
   return (
     <div>
-      <Container sx={{ mt: "25px" }}>
+      <Container sx={{ mt: "25px",  }}>
         <Container
           sx={{
             display: "flex",

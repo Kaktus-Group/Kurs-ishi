@@ -18,22 +18,22 @@ export default class CenterMode extends Component {
         <div className="p-3">
           <Slider {...settings}>
             <div>
-              <img src={first} alt="" />
+              <img src={first} alt="" className="overflow-hidden" />
             </div>
             <div>
-              <img src={second} alt="" />
+              <img src={second} alt="" className="overflow-hidden" />
             </div>
             <div>
-              <img src={first} alt="" />
+              <img src={first} alt="" className="overflow-hidden" />
             </div>
             <div>
-              <img src={second} alt="" />
+              <img src={second} alt="" className="overflow-hidden" />
             </div>
             <div>
-              <img src={first} alt="" />
+              <img src={first} alt="" className="overflow-hidden" />
             </div>
             <div>
-              <img src={second} alt="" />
+              <img src={second} alt="" className="overflow-hidden" />
             </div>
           </Slider>
         </div>
