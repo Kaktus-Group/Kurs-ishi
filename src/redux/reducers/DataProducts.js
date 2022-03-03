@@ -1,4 +1,6 @@
-const DataProducts = [
+import { useState } from "react";
+
+const [data, setData] = useState([
   {
     type: "Pitsa",
     products: [
@@ -105,5 +107,4 @@ const DataProducts = [
       },
     ],
   },
-];
-export default DataProducts;
+]);
