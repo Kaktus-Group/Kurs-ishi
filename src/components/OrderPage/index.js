@@ -1,30 +1,28 @@
-import { Container, Typography } from "@mui/material";
+import { Container, } from "@mui/material";
 import React from "react";
+import Back from "./Back";
 import Info from "./Info";
 import Inputs from "./Inputs";
 import Order from "./Order";
 import Price from "./Price";
+import PriceCard from "./PriceCard";
+import Title from "./Title";
 
 function OrderPage() {
   return (
     <div>
-      <Container>
-        <Container>
-          <Typography
-            sx={{
-              color: "#F7D22D",
-              fontSize: "32px",
-              fontWeight: "800",
-              mt: "20px",
-            }}
-          >
-            Заказ на доставку
-          </Typography>
-        </Container>
+      <Container sx={{display:"flex",justifyContent:"space-between",}}>
+       <Container sx={{minWidth:"850px"}}>
+       <Title/>
         <Inputs />
         <Info />
         <Price />
         <Order />
+        <Back />
+       </Container>
+       <Container>
+         <PriceCard/>
+       </Container>
       </Container>
     </div>
   );

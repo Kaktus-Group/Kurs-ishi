@@ -1,17 +1,16 @@
 import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import OrderPage from "../components/OrderPage";
 import HomePage from "../components/HomePage";
-import SignUp from "../components/Modal/SignUp";
-import UserProfile from "../components/UserProfile";
 
+import Header from "../components/Header";
+import MyKor from "../components/Korzinka/Korzinka";
 function Root() {
   return (
     <div>
+      <Header/>
+      <MyKor/>
       {/* <HomePage /> */}
-      {/* <SignUp /> */}
-      <UserProfile />
     </div>
   );
 }

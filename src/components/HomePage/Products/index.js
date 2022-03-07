@@ -10,80 +10,16 @@ import secPiz from "../../../assets/images/NewPicture.svg";
 import thirdPiz from "../../../assets/images/Pizza.svg";
 import fourthPiz from "../../../assets/images/PiizzaSimple.svg";
 import { CardActionArea, Container } from "@mui/material";
-
+import DataProducts from '../../../redux/reducers/DataProducts'
 function Products() {
-  const [card, setCard] = React.useState([
-    {
-      img: `${firstPiz}`,
-      info: "С креветками и трюфелями",
-      title:
-        "Домашнаяя паста феттуччине, сливочный соус, креветки, трюфельное масло, черный перец, пармезан.350 г",
-      price: "от 600 ₽",
-      btnInfo: "В корзину",
-    },
-    {
-      img: `${secPiz}`,
-      info: "С креветками и трюфелями",
-      title:
-        "Домашнаяя паста феттуччине, сливочный соус, креветки, трюфельное масло, черный перец, пармезан.350 г",
-      price: "от 600 ₽",
-      btnInfo: "В корзину",
-    },
-    {
-      img: `${thirdPiz}`,
-      info: "С креветками и трюфелями",
-      title:
-        "Домашнаяя паста феттуччине, сливочный соус, креветки, трюфельное масло, черный перец, пармезан.350 г",
-      price: "от 600 ₽",
-      btnInfo: "В корзину",
-    },
-    {
-      img: `${fourthPiz}`,
-      info: "С креветками и трюфелями",
-      title:
-        "Домашнаяя паста феттуччине, сливочный соус, креветки, трюфельное масло, черный перец, пармезан.350 г",
-      price: "от 600 ₽",
-      btnInfo: "В корзину",
-    },
-    {
-      img: `${firstPiz}`,
-      info: "С креветками и трюфелями",
-      title:
-        "Домашнаяя паста феттуччине, сливочный соус, креветки, трюфельное масло, черный перец, пармезан.350 г",
-      price: "от 600 ₽",
-      btnInfo: "В корзину",
-    },
-    {
-      img: `${secPiz}`,
-      info: "С креветками и трюфелями",
-      title:
-        "Домашнаяя паста феттуччине, сливочный соус, креветки, трюфельное масло, черный перец, пармезан.350 г",
-      price: "от 600 ₽",
-      btnInfo: "В корзину",
-    },
-    {
-      img: `${thirdPiz}`,
-      info: "С креветками и трюфелями",
-      title:
-        "Домашнаяя паста феттуччине, сливочный соус, креветки, трюфельное масло, черный перец, пармезан.350 г",
-      price: "от 600 ₽",
-      btnInfo: "В корзину",
-    },
-    {
-      img: `${fourthPiz}`,
-      info: "С креветками и трюфелями",
-      title:
-        "Домашнаяя паста феттуччине, сливочный соус, креветки, трюфельное масло, черный перец, пармезан.350 г",
-      price: "от 600 ₽",
-      btnInfo: "В корзину",
-    },
-  ]);
-  console.log("====================================");
-  console.log(card);
-  console.log("====================================");
+  const card = DataProducts
   return (
     <div>
       <Container>
+        {
+      card.map((item, i) => {
+            return(
+            <>
         <Typography
           sx={{
             fontWeight: "700",
@@ -93,18 +29,18 @@ function Products() {
             mb: "20px",
           }}
         >
-          Паста
+          {item.type}
         </Typography>
 
         <div className="flex flex-wrap justify-between">
-          {card.map((item, i) => {
+          {item.products.map((item1, i) => {
             return (
               <Card sx={{ maxWidth: 280, my: "16px" }} key={i}>
                 <CardActionArea>
                   <CardMedia
                     component="img"
-                    height="140"
-                    image={item.img}
+                    height="100"
+                    image={item1.img}
                     alt="green iguana"
                   />
                   <CardContent>
@@ -117,26 +53,26 @@ function Products() {
                         fontSize: "24px",
                       }}
                     >
-                      {item.info}
+                      {item1.Name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      {item.title}
+                      {item1.title}
                     </Typography>
                     <div className="flex justify-between mt-6">
                       <Typography
                         sx={{
                           fontWeight: "bold",
                           color: "#231F20",
-                          fontSize: "22px",
+                          fontSize: "20px",
                         }}
                       >
-                        {item.price}
+                        {item1.Price} so'mdan
                       </Typography>
                       <Button
                         variant="contained"
                         sx={{ background: "#F7D22D !important" }}
                       >
-                        {item.btnInfo}
+                       Savatga
                       </Button>
                     </div>
                   </CardContent>
@@ -145,6 +81,8 @@ function Products() {
             );
           })}
         </div>
+        </>
+)})}
       </Container>
     </div>
   );
