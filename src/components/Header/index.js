@@ -7,6 +7,7 @@ import little from "../../assets/log/little.png";
 import yulduz from "../../assets/log/yulduz.png";
 import { NavLink } from "react-router-dom";
 import SignUp from "../Modal/SignUp";
+import { yellow } from "@mui/material/colors";
 
 
 export default function Header() {
@@ -188,19 +189,7 @@ export default function Header() {
         </Box>
         <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
 
-          <Button
-            sx={{
-              color: "#696F7A",
-              fontStyle: "normal",
-              fontWeight: "bold",
-              fontSize: "16px",
-              lineHeight: "28px",
-              textTransform: "capitalize",
-            }}
-          >
-            Войти
-          </Button>
-
+         
        
            
             <Button
@@ -234,16 +223,6 @@ export default function Header() {
                   },
                 }}
               >
-                <Typography
-                  sx={{
-                    color: "#231F20",
-                    fontStyle: "normal",
-                    fontWeight: "bold",
-                    fontSize: "16px",
-                    lineHeight: "28px",
-                    textTransform: "capitalize",
-                  }}
-                >
                   Корзина | 1
                 </Typography>
               </Button>
