@@ -1,11 +1,12 @@
 import React from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import OrderPage from "../components/OrderPage";
-import HomePage from "../components/HomePage";
-import Delivery from "../components/Modal/Delivery";
+import UserProfile from "../components/UserProfile";
+
 function Root() {
-  return <div></div>;
+  return (
+    <div>
+      <UserProfile />
+    </div>
+  );
 }
 
 export default Root;
