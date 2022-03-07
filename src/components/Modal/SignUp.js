@@ -54,16 +54,19 @@ const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
   );
 });
 
-export default function SignUp() {
+export default function SignUp(props) {
+
   const [open, setOpen] = React.useState(true);
-  const [value, setValue] = React.useState("");
-  const [confirm, setConfirm] = React.useState("");
+  const [value, setValue] = React.useState('');
+  const [confirm, setConfirm] = React.useState('');
+
   const [guard, setGuard] = React.useState(false);
   const [submit, setSubmit] = React.useState(false);
   const [check, setCheck] = React.useState(0);
   const [isChecked, setIsChecked] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
+    props.isAuth();
     setOpen(false);
     setSubmit(false);
     setConfirm("");

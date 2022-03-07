@@ -6,9 +6,14 @@ import logo from "../../assets/log/logo.jpg";
 import little from "../../assets/log/little.png";
 import yulduz from "../../assets/log/yulduz.png";
 import { NavLink } from "react-router-dom";
+import SignUp from "../Modal/SignUp";
+
 
 export default function Header() {
-  console.log(DataProducts);
+  const [auth, setAuth] = React.useState(false);
+  console.log(auth);
+  const disableAuth = () => setAuth(false);
+
   return (
     <Container sx={{mt:2}}>
       <Box
@@ -177,8 +182,9 @@ export default function Header() {
           })}
         </Box>
         <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          <NavLink to={"/sign_up"}>
+          
             <Button
+              onClick={() => setAuth(true)}
               sx={{
                 color: "#696F7A",
                 fontStyle: "normal",
@@ -190,7 +196,7 @@ export default function Header() {
             >
               Войти
             </Button>
-          </NavLink>
+          
           <NavLink to="/savat">
             <Button
               sx={{
@@ -214,6 +220,7 @@ export default function Header() {
           </NavLink>
         </Box>
       </Box>
+      {auth && <SignUp isAuth = {disableAuth}/>}
     </Container>
   );
 }
