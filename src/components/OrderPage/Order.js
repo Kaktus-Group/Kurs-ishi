@@ -1,5 +1,4 @@
 import React from "react";
-import Checkbox from "@mui/material/Checkbox";
 import { Container, Radio, Typography } from "@mui/material";
 import { yellow } from "@mui/material/colors";
 import { FaInfoCircle } from "react-icons/fa";
@@ -39,5 +38,6 @@ function Order() {
     </div>
   );
 }
+
 
 export default Order;
