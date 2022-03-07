@@ -6,16 +6,14 @@ import logo from "../../assets/log/logo.jpg";
 import little from "../../assets/log/little.png";
 import yulduz from "../../assets/log/yulduz.png";
 import { NavLink } from "react-router-dom";
-import { yellow } from "@mui/material/colors";
-import { ThemeProvider } from "@mui/material/styles";
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: yellow[500],
-    },
-  },
-});
+import SignUp from "../Modal/SignUp";
+
+
 export default function Header() {
+  const [auth, setAuth] = React.useState(false);
+  console.log(auth);
+  const disableAuth = () => setAuth(false);
+
   return (
     <Container
       sx={{
@@ -189,6 +187,7 @@ export default function Header() {
           })}
         </Box>
         <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
+
           <Button
             sx={{
               color: "#696F7A",
@@ -202,9 +201,31 @@ export default function Header() {
             Войти
           </Button>
 
-          <ThemeProvider theme={theme}>
-            <NavLink to="/savat">
-              <Button
+       
+           
+            <Button
+              onClick={() => setAuth(true)}
+              sx={{
+                color: "#696F7A",
+                fontStyle: "normal",
+                fontWeight: "bold",
+                fontSize: "16px",
+                lineHeight: "28px",
+                textTransform: "capitalize",
+              }}
+            >
+              Войти
+            </Button>
+          
+          <NavLink to="/savat">
+            <Button
+              sx={{
+                background: "#F7D22D",
+                borderRadius: "8px",
+              }}
+            >
+              <Typography
+
                 sx={{
                   background: "#F7D22D",
                   borderRadius: "8px",
@@ -227,9 +248,10 @@ export default function Header() {
                 </Typography>
               </Button>
             </NavLink>
-          </ThemeProvider>
+     
         </Box>
       </Box>
+      {auth && <SignUp isAuth = {disableAuth}/>}
     </Container>
   );
 }
