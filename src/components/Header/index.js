@@ -1,4 +1,4 @@
-import { Button, Container, Typography } from "@mui/material";
+import { Button, Container, createTheme, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import React from "react";
 import DataProducts from "../../redux/reducers/DataProducts";
@@ -6,11 +6,23 @@ import logo from "../../assets/log/logo.jpg";
 import little from "../../assets/log/little.png";
 import yulduz from "../../assets/log/yulduz.png";
 import { NavLink } from "react-router-dom";
-
+import { yellow } from "@mui/material/colors";
+import { ThemeProvider } from "@mui/material/styles";
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: yellow[500],
+    },
+  },
+});
 export default function Header() {
-  console.log(DataProducts);
   return (
-    <Container>
+    <Container
+      sx={{
+        mt: 1,
+        mb: 3,
+      }}
+    >
       <Box
         sx={{
           display: "flex",
@@ -177,41 +189,45 @@ export default function Header() {
           })}
         </Box>
         <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          <NavLink to={"/sign_up"}>
-            <Button
-              sx={{
-                color: "#696F7A",
-                fontStyle: "normal",
-                fontWeight: "bold",
-                fontSize: "16px",
-                lineHeight: "28px",
-                textTransform: "capitalize",
-              }}
-            >
-              Войти
-            </Button>
-          </NavLink>
-          <NavLink to="/savat">
-            <Button
-              sx={{
-                background: "#F7D22D",
-                borderRadius: "8px",
-              }}
-            >
-              <Typography
+          <Button
+            sx={{
+              color: "#696F7A",
+              fontStyle: "normal",
+              fontWeight: "bold",
+              fontSize: "16px",
+              lineHeight: "28px",
+              textTransform: "capitalize",
+            }}
+          >
+            Войти
+          </Button>
+
+          <ThemeProvider theme={theme}>
+            <NavLink to="/savat">
+              <Button
                 sx={{
-                  color: "#231F20",
-                  fontStyle: "normal",
-                  fontWeight: "bold",
-                  fontSize: "16px",
-                  lineHeight: "28px",
-                  textTransform: "capitalize",
+                  background: "#F7D22D",
+                  borderRadius: "8px",
+                  "&:hover": {
+                    backgroundColor: yellow[600],
+                  },
                 }}
               >
-                Корзина | 1
-              </Typography>
-            </Button>
-          </NavLink>
+                <Typography
+                  sx={{
+                    color: "#231F20",
+                    fontStyle: "normal",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    lineHeight: "28px",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Корзина | 1
+                </Typography>
+              </Button>
+            </NavLink>
+          </ThemeProvider>
         </Box>
       </Box>
     </Container>

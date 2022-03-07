@@ -9,12 +9,15 @@ export default class CenterMode extends Component {
       className: "center",
       centerMode: true,
       infinite: true,
-      centerPadding: "70px",
-      slidesToShow: 2,
+      centerPadding: "30px",
+      slidesToShow: 3,
+
       speed: 500,
+      autoplay: true,
+      autoplaySpeed: 2000,
     };
     return (
-      <Container>
+      <div>
         <div className="p-3">
           <Slider {...settings}>
             <div>
@@ -37,7 +40,7 @@ export default class CenterMode extends Component {
             </div>
           </Slider>
         </div>
-      </Container>
+      </div>
     );
   }
 }

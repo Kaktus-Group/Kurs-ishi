@@ -12,9 +12,9 @@ function Root() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} >
-            <Route path="/sign_up" element={<SignUp />}/>
-            </Route>
+          <Route path="/" element={<HomePage />}>
+            {/* <Route path="/sign_up" element={<SignUp />}/> */}
+          </Route>
           <Route path="/savat" element={<MyKor />} />
           {/* <Route path="" element={<NewsRedux />} /> */}
         </Routes>

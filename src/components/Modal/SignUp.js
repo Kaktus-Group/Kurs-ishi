@@ -101,7 +101,7 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <Button onClick={handleOpen}>Open Registration</Button> */}
+      <Button onClick={handleOpen}>Open Registration</Button>
       <Modal
         open={open}
         onClose={handleClose}
