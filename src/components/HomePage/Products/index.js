@@ -1,88 +1,85 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
+
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import firstPiz from "../../../assets/images/NEW.svg";
-import secPiz from "../../../assets/images/NewPicture.svg";
-import thirdPiz from "../../../assets/images/Pizza.svg";
-import fourthPiz from "../../../assets/images/PiizzaSimple.svg";
+
 import { CardActionArea, Container } from "@mui/material";
-import DataProducts from '../../../redux/reducers/DataProducts'
+import DataProducts from "../../../redux/reducers/DataProducts";
 function Products() {
-  const card = DataProducts
+  const card = DataProducts;
   return (
     <div>
       <Container>
-        {
-      card.map((item, i) => {
-            return(
+        {card.map((item, i) => {
+          return (
             <>
-        <Typography
-          sx={{
-            fontWeight: "700",
-            fontSize: "32px",
-            color: "#F7D22D",
-            mt: "45px",
-            mb: "20px",
-          }}
-        >
-          {item.type}
-        </Typography>
+              <Typography
+                sx={{
+                  fontWeight: "700",
+                  fontSize: "32px",
+                  color: "#F7D22D",
+                  mt: "45px",
+                  mb: "20px",
+                }}
+              >
+                {item.type}
+              </Typography>
 
-        <div className="flex flex-wrap justify-between">
-          {item.products.map((item1, i) => {
-            return (
-              <Card sx={{ maxWidth: 280, my: "16px" }} key={i}>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    height="100"
-                    image={item1.img}
-                    alt="green iguana"
-                  />
-                  <CardContent>
-                    <Typography
-                      gutterBottom
-                      variant="h5"
-                      component="div"
-                      sx={{
-                        color: "#797979",
-                        fontSize: "24px",
-                      }}
-                    >
-                      {item1.Name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {item1.title}
-                    </Typography>
-                    <div className="flex justify-between mt-6">
-                      <Typography
-                        sx={{
-                          fontWeight: "bold",
-                          color: "#231F20",
-                          fontSize: "20px",
-                        }}
-                      >
-                        {item1.Price} so'mdan
-                      </Typography>
-                      <Button
-                        variant="contained"
-                        sx={{ background: "#F7D22D !important" }}
-                      >
-                       Savatga
-                      </Button>
-                    </div>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            );
-          })}
-        </div>
-        </>
-)})}
+              <div className="flex flex-wrap justify-between">
+                {item.products.map((item1, i) => {
+                  return (
+                    <Card sx={{ maxWidth: 280, my: "16px" }} key={i}>
+                      <CardActionArea>
+                        <CardMedia
+                          component="img"
+                          width="100px"
+                          image={item1.img}
+                          alt="green iguana"
+                        />
+                        <CardContent>
+                          <Typography
+                            gutterBottom
+                            variant="h5"
+                            component="div"
+                            sx={{
+                              color: "#797979",
+                              fontSize: "24px",
+                            }}
+                          >
+                            {item1.Name}
+                          </Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            {item1.title}
+                          </Typography>
+                          <div className="flex justify-between mt-6">
+                            <Typography
+                              sx={{
+                                fontWeight: "bold",
+                                color: "#231F20",
+                                fontSize: "20px",
+                              }}
+                            >
+                              {item1.Price} so'mdan
+                            </Typography>
+                            <Button
+                              variant="contained"
+                              sx={{ background: "#F7D22D !important" }}
+                            >
+                              Savatga
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </CardActionArea>
+                    </Card>
+                  );
+                })}
+              </div>
+            </>
+          );
+        })}
       </Container>
     </div>
   );
