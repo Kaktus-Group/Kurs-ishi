@@ -1,8 +1,7 @@
 import React from "react";
-import Checkbox from "@mui/material/Checkbox";
 import { Container, Radio, Typography } from "@mui/material";
 import { yellow } from "@mui/material/colors";
-
+import { FaInfoCircle } from "react-icons/fa";
 function Order() {
   const [selectedValue, setSelectedValue] = React.useState("a");
   const handleChange = (event) => {
@@ -34,9 +33,11 @@ function Order() {
         >
           Сообщать о бонусах, акциях и новых продуктах
         </Typography>
+        <FaInfoCircle className="text-xl text-gray-400 ml-2" />
       </Container>
     </div>
   );
 }
+
 
 export default Order;

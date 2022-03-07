@@ -3,6 +3,7 @@ import { Box, Button, Card, Checkbox, Container, createTheme, FormControlLabel, 
 import saleImg from '../../assets/images/sale.png'
 import { IMaskInput } from "react-imask";
 import { RadioButtonChecked, RadioButtonUnchecked } from "@mui/icons-material";
+import Header from "../Header";
 import Footer from "../Footer";
 
 const theme = createTheme({
@@ -35,6 +36,7 @@ const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
 const UserProfile = () => {
     return (
         <ThemeProvider theme={theme}>
+            <Header />
             <Box sx={{backgroundColor: '#E3ECF5'}}>
                 <Container sx={{py: 5.5}}>
                     <Typography variant="h4" component='h1' color='primary' sx={{fontWeight: 900}}>Мои бонусы</Typography>

@@ -55,7 +55,7 @@ const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
   });
 
 export default function SignUp() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const [value, setValue] = React.useState('');
   const [confirm, setConfirm] = React.useState('');
   const [guard, setGuard] = React.useState(false);
@@ -102,7 +102,7 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Button onClick={handleOpen}>Open Registration</Button>
+      {/* <Button onClick={handleOpen}>Open Registration</Button> */}
       <Modal
         open={open}
         onClose={handleClose}
