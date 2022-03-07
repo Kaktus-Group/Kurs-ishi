@@ -1,8 +1,7 @@
 import { SET_CATEGORY, SET_ERROR, SET_LOADING, SET_NEWS } from "../types";
-import DataProducts from "./DataProducts";
 
 const initialState = {
-  news: DataProducts,
+  news: [],
   korzinka: [],
   user:[],
 };
