@@ -72,6 +72,7 @@ export default function SignUp(props) {
     setConfirm("");
     setValue("");
   };
+  
 
   const handleChange = (e) => {
     //   e.preventDefault();
