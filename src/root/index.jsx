@@ -9,9 +9,9 @@ import UserProfile from "../components/UserProfile";
 function Root() {
   return (
     <div>
-      {/* <HomePage /> */}
+      <HomePage />
       {/* <SignUp /> */}
-      <UserProfile />
+      {/* <UserProfile /> */}
     </div>
   );
 }
