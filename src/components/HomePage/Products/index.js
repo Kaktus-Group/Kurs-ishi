@@ -1,11 +1,9 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
-
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
 import { CardActionArea, Container } from "@mui/material";
 import DataProducts from "../../../redux/reducers/DataProducts";
 function Products() {
@@ -28,16 +26,19 @@ function Products() {
                 {item.type}
               </Typography>
 
-              <div className="flex flex-wrap justify-between">
+              <div className="flex flex-wrap gap-4">
                 {item.products.map((item1, i) => {
                   return (
-                    <Card sx={{ maxWidth: 280, my: "16px" }} key={i}>
+                    <Card sx={{ maxWidth: 275, my: "16px" }} key={i}>
                       <CardActionArea>
                         <CardMedia
+                          sx={{
+                            height: "275px",
+                            objectFit: "cover",
+                          }}
                           component="img"
-                          width="100px"
                           image={item1.img}
-                          alt="green iguana"
+                          alt="Pitsas"
                         />
                         <CardContent>
                           <Typography

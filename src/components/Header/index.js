@@ -1,4 +1,4 @@
-import { Button, Container, Typography } from "@mui/material";
+import { Button, Container, createTheme, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import React from "react";
 import DataProducts from "../../redux/reducers/DataProducts";
@@ -15,7 +15,12 @@ export default function Header() {
   const disableAuth = () => setAuth(false);
 
   return (
-    <Container sx={{mt:2}}>
+    <Container
+      sx={{
+        mt: 1,
+        mb: 3,
+      }}
+    >
       <Box
         sx={{
           display: "flex",
@@ -182,7 +187,22 @@ export default function Header() {
           })}
         </Box>
         <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          
+
+          <Button
+            sx={{
+              color: "#696F7A",
+              fontStyle: "normal",
+              fontWeight: "bold",
+              fontSize: "16px",
+              lineHeight: "28px",
+              textTransform: "capitalize",
+            }}
+          >
+            Войти
+          </Button>
+
+       
+           
             <Button
               onClick={() => setAuth(true)}
               sx={{
@@ -205,19 +225,30 @@ export default function Header() {
               }}
             >
               <Typography
+
                 sx={{
-                  color: "#231F20",
-                  fontStyle: "normal",
-                  fontWeight: "bold",
-                  fontSize: "16px",
-                  lineHeight: "28px",
-                  textTransform: "capitalize",
+                  background: "#F7D22D",
+                  borderRadius: "8px",
+                  "&:hover": {
+                    backgroundColor: yellow[600],
+                  },
                 }}
               >
-                Корзина | 1
-              </Typography>
-            </Button>
-          </NavLink>
+                <Typography
+                  sx={{
+                    color: "#231F20",
+                    fontStyle: "normal",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    lineHeight: "28px",
+                    textTransform: "capitalize",
+                  }}
+                >
+                  Корзина | 1
+                </Typography>
+              </Button>
+            </NavLink>
+     
         </Box>
       </Box>
       {auth && <SignUp isAuth = {disableAuth}/>}
