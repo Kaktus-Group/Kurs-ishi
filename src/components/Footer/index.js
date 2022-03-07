@@ -40,8 +40,8 @@ const theme = createTheme({
 const Footer = () => {
     return (
         <ThemeProvider theme={theme}>
-            <Container sx={{pt: 4, pb: 7.5, position: 'relative'}}>
-                <img src={footerCornerImg} alt="corenerImg"  style={{position: 'absolute', bottom: 0, right: '-159px'}}/>
+            
+            <Container sx={{pt: 4,  pb: 7.5, position: 'relative'}}>
                 <Box sx={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 7, alignItems: 'center'}}>
                     <Box>
                         <img src={logo} alt="logo" width='90px' style={{display: 'inline', cursor: "pointer"}}/>
@@ -97,6 +97,10 @@ const Footer = () => {
                     </Box>
                 </Box>
             </Container>
+            <Box position={"relative"}>
+
+                <img src={footerCornerImg} alt="corenerImg"  style={{position: 'absolute', bottom: 0, right: 0, overflow: 'hidden'}}/>
+            </Box>
         </ThemeProvider>
     )
 }
