@@ -1,4 +1,4 @@
-import { Button, Container, Typography } from "@mui/material";
+import { Button, Container, createTheme, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import React from "react";
 import DataProducts from "../../redux/reducers/DataProducts";
@@ -7,7 +7,7 @@ import little from "../../assets/log/little.png";
 import yulduz from "../../assets/log/yulduz.png";
 import { NavLink } from "react-router-dom";
 import SignUp from "../Modal/SignUp";
-
+import { yellow } from "@mui/material/colors";
 
 export default function Header() {
   const [auth, setAuth] = React.useState(false);
@@ -15,7 +15,12 @@ export default function Header() {
   const disableAuth = () => setAuth(false);
 
   return (
-    <Container>
+    <Container
+      sx={{
+        mt: 1,
+        mb: 3,
+      }}
+    >
       <Box
         sx={{
           display: "flex",
@@ -182,21 +187,20 @@ export default function Header() {
           })}
         </Box>
         <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          
-            <Button
-              onClick={() => setAuth(true)}
-              sx={{
-                color: "#696F7A",
-                fontStyle: "normal",
-                fontWeight: "bold",
-                fontSize: "16px",
-                lineHeight: "28px",
-                textTransform: "capitalize",
-              }}
-            >
-              Войти
-            </Button>
-          
+          <Button
+            onClick={() => setAuth(true)}
+            sx={{
+              color: "#696F7A",
+              fontStyle: "normal",
+              fontWeight: "bold",
+              fontSize: "16px",
+              lineHeight: "28px",
+              textTransform: "capitalize",
+            }}
+          >
+            Войти
+          </Button>
+
           <NavLink to="/savat">
             <Button
               sx={{
@@ -206,12 +210,11 @@ export default function Header() {
             >
               <Typography
                 sx={{
-                  color: "#231F20",
-                  fontStyle: "normal",
-                  fontWeight: "bold",
-                  fontSize: "16px",
-                  lineHeight: "28px",
-                  textTransform: "capitalize",
+                  background: "#F7D22D",
+                  borderRadius: "8px",
+                  "&:hover": {
+                    backgroundColor: yellow[600],
+                  },
                 }}
               >
                 Корзина | 1
@@ -220,7 +223,7 @@ export default function Header() {
           </NavLink>
         </Box>
       </Box>
-      {auth && <SignUp isAuth = {disableAuth}/>}
+      {auth && <SignUp isAuth={disableAuth} />}
     </Container>
   );
 }
