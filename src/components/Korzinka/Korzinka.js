@@ -35,12 +35,13 @@ const Increment = ()=>{
   setCount(prev=>prev+1)
 }
 return (
+  <Box>
       <Container>
         <KorHeader/>
-  <Container maxWidth='md'>
-      <Typography component="h3" variant="h2" color='orange' borderBottom={"2px solid rgba(0, 0, 0, 0.06)"} sx={{mb:2}}>
-        Korzinka
-      </Typography>
+        <Container maxWidth='md'>
+            <Typography component="h3" variant="h2" color='orange' borderBottom={"2px solid rgba(0, 0, 0, 0.06)"} sx={{mb:2}}>
+              Korzinka
+            </Typography>
         
         {
           data.map((item,index)=>(
@@ -107,8 +108,9 @@ return (
           ))
         }
         <Sous />
- </Container>
- <Footer />
       </Container>
+      </Container>
+      <Footer />
+      </Box>
     )
 }

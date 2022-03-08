@@ -73,6 +73,7 @@ export default function SignUp(props) {
     setValue("");
   };
 
+
   const handleChange = (e) => {
     //   e.preventDefault();
     setValue(e?.target?.value);
@@ -104,7 +105,6 @@ export default function SignUp(props) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Button onClick={handleOpen}>Open Registration</Button>
       <Modal
         open={open}
         onClose={handleClose}
