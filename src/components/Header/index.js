@@ -7,7 +7,7 @@ import little from "../../assets/log/little.png";
 import yulduz from "../../assets/log/yulduz.png";
 import { NavLink } from "react-router-dom";
 import SignUp from "../Modal/SignUp";
-
+import { yellow } from "@mui/material/colors";
 
 export default function Header() {
   const [auth, setAuth] = React.useState(false);
@@ -187,8 +187,8 @@ export default function Header() {
           })}
         </Box>
         <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
-
           <Button
+            onClick={() => setAuth(true)}
             sx={{
               color: "#696F7A",
               fontStyle: "normal",
@@ -201,22 +201,6 @@ export default function Header() {
             Войти
           </Button>
 
-       
-           
-            <Button
-              onClick={() => setAuth(true)}
-              sx={{
-                color: "#696F7A",
-                fontStyle: "normal",
-                fontWeight: "bold",
-                fontSize: "16px",
-                lineHeight: "28px",
-                textTransform: "capitalize",
-              }}
-            >
-              Войти
-            </Button>
-          
           <NavLink to="/savat">
             <Button
               sx={{
@@ -225,7 +209,6 @@ export default function Header() {
               }}
             >
               <Typography
-
                 sx={{
                   background: "#F7D22D",
                   borderRadius: "8px",
@@ -234,24 +217,13 @@ export default function Header() {
                   },
                 }}
               >
-                <Typography
-                  sx={{
-                    color: "#231F20",
-                    fontStyle: "normal",
-                    fontWeight: "bold",
-                    fontSize: "16px",
-                    lineHeight: "28px",
-                    textTransform: "capitalize",
-                  }}
-                >
-                  Корзина | 1
-                </Typography>
-              </Button>
-            </NavLink>
-     
+                Корзина | 1
+              </Typography>
+            </Button>
+          </NavLink>
         </Box>
       </Box>
-      {auth && <SignUp isAuth = {disableAuth}/>}
+      {auth && <SignUp isAuth={disableAuth} />}
     </Container>
   );
 }
