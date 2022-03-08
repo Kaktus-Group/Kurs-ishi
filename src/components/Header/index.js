@@ -189,23 +189,20 @@ export default function Header() {
         </Box>
         <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
 
-         
-       
-           
-            <Button
-              onClick={() => setAuth(true)}
-              sx={{
-                color: "#696F7A",
-                fontStyle: "normal",
-                fontWeight: "bold",
-                fontSize: "16px",
-                lineHeight: "28px",
-                textTransform: "capitalize",
-              }}
-            >
-              Войти
-            </Button>
-          
+          <Button
+            onClick={() => setAuth(true)}
+            sx={{
+              color: "#696F7A",
+              fontStyle: "normal",
+              fontWeight: "bold",
+              fontSize: "16px",
+              lineHeight: "28px",
+              textTransform: "capitalize",
+            }}
+          >
+            Войти
+          </Button>
+
           <NavLink to="/savat">
             <Button
               sx={{
@@ -214,7 +211,6 @@ export default function Header() {
               }}
             >
               <Typography
-
                 sx={{
                   background: "#F7D22D",
                   borderRadius: "8px",
@@ -223,14 +219,13 @@ export default function Header() {
                   },
                 }}
               >
-                  Корзина | 1
-                </Typography>
-              </Button>
-            </NavLink>
-     
+                Корзина | 1
+              </Typography>
+            </Button>
+          </NavLink>
         </Box>
       </Box>
-      {auth && <SignUp isAuth = {disableAuth}/>}
+      {auth && <SignUp isAuth={disableAuth} />}
     </Container>
   );
 }
