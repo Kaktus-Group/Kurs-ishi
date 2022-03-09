@@ -9,7 +9,6 @@ import { NavLink } from "react-router-dom";
 import SignUp from "../Modal/SignUp";
 import { yellow } from "@mui/material/colors";
 
-
 export default function Header() {
   const [auth, setAuth] = React.useState(false);
   console.log(auth);
@@ -188,7 +187,6 @@ export default function Header() {
           })}
         </Box>
         <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
-
           <Button
             onClick={() => setAuth(true)}
             sx={{
@@ -208,15 +206,18 @@ export default function Header() {
               sx={{
                 background: "#F7D22D",
                 borderRadius: "8px",
+                "&:hover": {
+                  backgroundColor: yellow[600],
+                },
               }}
             >
               <Typography
                 sx={{
                   background: "#F7D22D",
                   borderRadius: "8px",
-                  "&:hover": {
-                    backgroundColor: yellow[600],
-                  },
+                  color: "#231F20",
+                  fontWeight: "bold",
+                  fontSize: "16px",
                 }}
               >
                 Корзина | 1
