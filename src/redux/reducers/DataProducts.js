@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const DataProducts = [
   {
-    type: "Pitsa",
+    type: "Pasta",
     products: [
       {
         Name: "Bucco",
@@ -116,38 +116,37 @@ const DataProducts = [
     ],
   },
   {
-    type:"Sous",
-    products:[
+    type: "Sous",
+    products: [
       {
         Name: "Сырный соус",
         Price: 120,
         title: "Amazing",
         img: "https://static.tildacdn.com/tild6364-6237-4162-b464-306431366337/photo.jpg",
-        info: "", 
+        info: "",
       },
       {
         Name: "Барбекю",
         Price: 120,
         title: "Amazing",
         img: "https://news.unipack.ru/light_editor_img/images/2016-7-5/file1467486852.jpg",
-        info: "", 
+        info: "",
       },
       {
         Name: "Ранч",
         Price: 120,
         title: "Amazing",
         img: "https://i.pinimg.com/originals/db/e4/b5/dbe4b508357cad8b74431737e5ad7b32.jpg",
-        info: "", 
+        info: "",
       },
       {
         Name: "Сгущёнка",
         Price: 120,
         title: "Amazing",
         img: "https://arcept.ru/sousy/domashnii-karamelny-sous-dlya-desertov/domashnii-karamelny-sous-dlya-desertov-ready0-recept.jpg",
-        info: "", 
+        info: "",
       },
-      
-    ]
-  }
+    ],
+  },
 ];
 export default DataProducts;
