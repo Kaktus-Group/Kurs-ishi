@@ -5,6 +5,7 @@ import { IMaskInput } from "react-imask";
 import { RadioButtonChecked, RadioButtonUnchecked } from "@mui/icons-material";
 import Header from "../Header";
 import Footer from "../Footer";
+import { useNavigate } from "react-router-dom";
 
 const theme = createTheme({
     palette: {
@@ -34,50 +35,54 @@ const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
   });
 
 const UserProfile = () => {
+    let navigate = useNavigate();
+
     return (
-        <ThemeProvider theme={theme}>
+        <Box>        
             <Header />
-            <Box sx={{backgroundColor: '#E3ECF5'}}>
-                <Container sx={{py: 5.5}}>
-                    <Typography variant="h4" component='h1' color='primary' sx={{fontWeight: 900}}>Мои бонусы</Typography>
-                    <Card elevation={3} sx={{mt: 4, p: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', height: 338, width: 255}}>
-                        <img src={saleImg} alt="sale"/>
-                        <Typography variant="body2" component='p' sx={{textAlign: 'center', fontWeight: 700, mt: 4}}>Бонусы появятся здесь после заказа</Typography>
-                    </Card>
-                    <Typography variant="body2" component='p' color='primary' sx={{fontWeight: 700, mt: 5, textDecoration: 'underline', cursor: 'pointer'}}>Все наши акции</Typography>
-                </Container>
-            </Box>
-            <Container sx={{py: 7}}>
-                <Typography variant="h4" component='h1' color='primary' sx={{fontWeight: 800, mb: 3.5}}>Личные данные</Typography>
-                <Box 
-                    component="form"
-                >
-                    <Typography sx={{fontWeight: 700, fontSize: 14, mb: 0.75}}>Имя</Typography>
-                    <TextField variant="outlined" placeholder="Имя" sx={{width: '300px', mb: 3}} />
-
-                    <Typography sx={{fontWeight: 700, fontSize: 14, mb: 0.75}}>Номер телефона</Typography>
-                    <TextField
-                        id="formatted-text-mask-input"
-                        sx={{width: "300px"}}
-                        InputProps={{
-                            startAdornment: (
-                            <InputAdornment position="start">+998</InputAdornment>
-                            ),
-                            inputComponent: TextMaskCustom,
-                        }}
-                    />
+            <ThemeProvider theme={theme}>
+                <Box sx={{backgroundColor: '#E3ECF5'}}>
+                    <Container sx={{py: 5.5}}>
+                        <Typography variant="h4" component='h1' color='primary' sx={{fontWeight: 900}}>Мои бонусы</Typography>
+                        <Card elevation={3} sx={{mt: 4, p: 5, display: 'flex', flexDirection: 'column', alignItems: 'center', height: 338, width: 255}}>
+                            <img src={saleImg} alt="sale"/>
+                            <Typography variant="body2" component='p' sx={{textAlign: 'center', fontWeight: 700, mt: 4}}>Бонусы появятся здесь после заказа</Typography>
+                        </Card>
+                        <Typography variant="body2" component='p' color='primary' sx={{fontWeight: 700, mt: 5, textDecoration: 'underline', cursor: 'pointer'}}>Все наши акции</Typography>
+                    </Container>
                 </Box>
+                <Container sx={{py: 7}}>
+                    <Typography variant="h4" component='h1' color='primary' sx={{fontWeight: 800, mb: 3.5}}>Личные данные</Typography>
+                    <Box 
+                        component="form"
+                    >
+                        <Typography sx={{fontWeight: 700, fontSize: 14, mb: 0.75}}>Имя</Typography>
+                        <TextField variant="outlined" placeholder="Имя" sx={{width: '300px', mb: 3}} />
 
-                <Typography variant="h4" component='h1' color='primary' sx={{fontWeight: 900, my: 3.5}}>Подписки</Typography>
-                <FormControlLabel control={
-                    <Checkbox label="Label" icon={<RadioButtonUnchecked />} checkedIcon={<RadioButtonChecked />} defaultChecked sx={{ '& .MuiSvgIcon-root': { fontSize: 18 } }}/>
-                } label="Сообщать о бонусах, акциях и новых продуктах" />
+                        <Typography sx={{fontWeight: 700, fontSize: 14, mb: 0.75}}>Номер телефона</Typography>
+                        <TextField
+                            id="formatted-text-mask-input"
+                            sx={{width: "300px"}}
+                            InputProps={{
+                                startAdornment: (
+                                <InputAdornment position="start">+998</InputAdornment>
+                                ),
+                                inputComponent: TextMaskCustom,
+                            }}
+                        />
+                    </Box>
 
-                <Button variant="contained" color='secondary' sx={{display: 'block', mt: 5}}>Выйти</Button>
-            </Container>
+                    <Typography variant="h4" component='h1' color='primary' sx={{fontWeight: 900, my: 3.5}}>Подписки</Typography>
+                    <FormControlLabel control={
+                        <Checkbox label="Label" icon={<RadioButtonUnchecked />} checkedIcon={<RadioButtonChecked />} defaultChecked sx={{ '& .MuiSvgIcon-root': { fontSize: 18 } }}/>
+                    } label="Сообщать о бонусах, акциях и новых продуктах" />
 
-            <Footer />
-        </ThemeProvider>
+                    <Button variant="contained" onClick={() => navigate('/')} color='secondary' sx={{display: 'block', mt: 5}}>Выйти</Button>
+                </Container>
+
+                <Footer />
+            </ThemeProvider>
+        </Box>
     )
 }
 

@@ -7,6 +7,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Alert, FormControl, InputAdornment, TextField } from "@mui/material";
 import { IMaskInput } from "react-imask";
+import { useNavigate } from "react-router-dom";
 
 const theme = createTheme({
   palette: {
@@ -55,6 +56,7 @@ const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
 });
 
 export default function SignUp(props) {
+  let navigate = useNavigate();
 
   const [open, setOpen] = React.useState(true);
   const [value, setValue] = React.useState('');
@@ -85,7 +87,7 @@ export default function SignUp(props) {
     console.log(check);
     if (confirm === Math.trunc(check / 10).toString()) {
       setIsChecked(false);
-      alert("success");
+      navigate('/user');
     } else {
       setIsChecked(true);
     }
