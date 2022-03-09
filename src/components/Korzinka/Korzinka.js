@@ -9,7 +9,7 @@ import Footer from "../Footer";
 import Sous from "./sous";
 import Carusel from "./slick";
 export default function MyKor() {
-  const [data, setData] = useState([
+   const [data, setData] = useState([
     {
       img: "https://io.bellissimo.uz/images/30a219fa-4065-4390-9fb7-d71b5d6974e2.jpg",
       info: "С креветками и трюфелями",
@@ -35,10 +35,14 @@ export default function MyKor() {
   const Increment = () => {
     setCount((prev) => prev + 1);
   };
-  return (
-    <Container>
-      <KorHeader />
-      <Container maxWidth="md">
+
+
+ 
+return (
+  <Box>
+      <Container>
+        <KorHeader/>
+        <Container maxWidth="md">
         <Typography
           component="h3"
           variant="h2"
@@ -166,7 +170,8 @@ export default function MyKor() {
         <Carusel />
         <Sous />
       </Container>
+      </Container>
       <Footer />
-    </Container>
-  );
+      </Box>
+    )
 }

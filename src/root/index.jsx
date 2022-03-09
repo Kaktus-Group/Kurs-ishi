@@ -12,13 +12,19 @@ import Carusel from "../components/Korzinka/slick";
 function Root() {
   return (
     <div>
-      <BrowserRouter>
+
+      {<BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/sign_up" element={<SignUp />} />
+          <Route path="/sign_up" element={<SignUp />}/>
+          <Route path="/user" element={<UserProfile />}/>
           <Route path="/savat" element={<MyKor />} />
-        </Routes>
-      </BrowserRouter>
+    
+        </Routes> 
+
+      </BrowserRouter>}
+      {/* <Carusel /> */}
+
     </div>
   );
 }
