@@ -1,15 +1,11 @@
 import { dispatch } from "../store";
-import { SET_CATEGORY, SET_ERROR, SET_LOADING,  } from "../types";
+import { SET_CATEGORY, SET_DATA, REMOVE_KORZINKA, SET_KORZINKA,  } from "../types";
 
-export const setLoading = (state) => {
-  dispatch({ type: SET_LOADING, payload: state });
+
+export const setKorzinka = (korzinka) => {
+  dispatch({ type: SET_KORZINKA, payload: korzinka });
 };
 
-export const setError = (state) => {
-  dispatch({ type: SET_ERROR, payload: state });
-};
-
-
-export const setCategory = (category) => {
-  dispatch({ type: SET_CATEGORY, payload: category });
+export const removeKorzinka = (index) => {
+  dispatch({ type:REMOVE_KORZINKA, payload: index });
 };

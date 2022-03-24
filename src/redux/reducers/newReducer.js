@@ -1,21 +1,22 @@
-import { SET_CATEGORY, SET_ERROR, SET_LOADING, SET_NEWS } from "../types";
-
+import { SET_CATEGORY, SET_ERROR, SET_KORZINKA,SET_DATA, REMOVE_KORZINKA } from "../types";
+import DataProducts from "./DataProducts"
 const initialState = {
-  news: [],
+  news: DataProducts,
   korzinka: [],
   user:[],
 };
 
 const newsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_LOADING:
+    case SET_DATA:
       return { ...state, loading: action.payload };
-    case SET_ERROR:
-      return { ...state, error: action.payload };
-    case SET_NEWS:
-      return { ...state, news: action.payload };
-    case SET_CATEGORY:
-      return { ...state, category: action.payload };
+    case REMOVE_KORZINKA:
+      console.log(action.payload)
+      const korzinka = [...state.korzinka]
+      korzinka.splice(action.payload,1)
+      return { ...state,korzinka:[...korzinka] };
+    case SET_KORZINKA:
+      return { ...state, korzinka:[...state.korzinka, action.payload] };
 
     default:
       return state;

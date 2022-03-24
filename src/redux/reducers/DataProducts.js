@@ -67,7 +67,7 @@ const DataProducts = [
         Name: "Coffee",
         Price: 100,
         title: "Delicious",
-        img: "https://static.turbosquid.com/Preview/2014/07/07__23_41_37/coffe_cup_preview_01.jpg6e737ca4-a947-4afb-8073-7748907cba17Original.jpg",
+        img: "https://pngicon.ru/file/uploads/kofe.png",
         info: "",
       },
     ],
@@ -79,7 +79,7 @@ const DataProducts = [
         Name: "Chicken soup",
         Price: 1000,
         title: "Taste",
-        img: "https://images.immediate.co.uk/production/volatile/sites/30/2021/03/Classic-Minestrone-Soup-13720e5.jpg?quality=90&resize=556,505",
+        img: "https://www.vippng.com/png/full/173-1731981_chicken-thai-curry.png",
         info: "",
       },
       {

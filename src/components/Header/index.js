@@ -9,7 +9,6 @@ import { NavLink } from "react-router-dom";
 import SignUp from "../Modal/SignUp";
 import { yellow } from "@mui/material/colors";
 
-
 export default function Header() {
   const [auth, setAuth] = React.useState(false);
   console.log(auth);
@@ -191,46 +190,35 @@ export default function Header() {
 
          
        
-           
-            <Button
-              onClick={() => setAuth(true)}
-              sx={{
-                color: "#696F7A",
-                fontStyle: "normal",
-                fontWeight: "bold",
-                fontSize: "16px",
-                lineHeight: "28px",
-                textTransform: "capitalize",
-              }}
-            >
-              Войти
-            </Button>
-          
-          <NavLink to="/savat">
-            <Button
-              sx={{
-                background: "#F7D22D",
-                borderRadius: "8px",
-              }}
-            >
-              <Typography
+          <Button
+            onClick={() => setAuth(true)}
+            sx={{
+              color: "#696F7A",
+              fontStyle: "normal",
+              fontWeight: "bold",
+              fontSize: "16px",
+              lineHeight: "28px",
+              textTransform: "capitalize",
+            }}
+          >
+            Войти
+          </Button>
 
-                sx={{
-                  background: "#F7D22D",
-                  borderRadius: "8px",
-                  "&:hover": {
-                    backgroundColor: yellow[600],
-                  },
-                }}
-              >
-                  Корзина | 1
-                </Typography>
-              </Button>
-            </NavLink>
-     
+          <NavLink to="/savat">
+            <Button variant="contained" color="warning"   >
+              <Typography sx={{fontStyle: "normal",
+                              my:1,fontWeight: 700,
+                              fontSize: "16px",
+                              lineHeight: "19px",
+                              textAlign:"left",
+                              color: "#231F20",}}>
+                Корзина | 1
+              </Typography>
+            </Button>
+          </NavLink>
         </Box>
       </Box>
-      {auth && <SignUp isAuth = {disableAuth}/>}
+      {auth && <SignUp isAuth={disableAuth} />}
     </Container>
   );
 }
