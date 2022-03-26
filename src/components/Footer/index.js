@@ -12,6 +12,7 @@ import messenger from './img/messenger.png';
 import telegram from './img/telegram.png';
 import facebook from './img/facebook.png';
 import vKontacte from './img/vKontacte.png';
+import { NavLink } from "react-router-dom";
 
 const theme = createTheme({
     palette: {
@@ -62,7 +63,9 @@ const Footer = () => {
                         <Grid container spacing={3}>
                             <Grid item lg={12} sm={4} xs={12} sx={{paddingTop: {xs: '0px !important'}}}>
                                 <Box display={'flex'} justifyContent="space-between">
-                                    <img src={logo} alt="logo" width='90px' style={{display: 'inline', cursor: "pointer"}}/>
+                                    <NavLink to="/">
+                                        <img src={logo} alt="logo" width='90px' style={{display: 'inline', cursor: "pointer"}}/>
+                                    </NavLink>
                                     {xs ? <Box display={'flex'} flexDirection='column' alignItems={'flex-end'}>
                                         <Typography variant="h4" component='h1' color='primary' sx={{fontWeight: 800, fontSize: {xs: 20, sm: 24, md: 30}}}>8 499 391-84-49</Typography>
                                         <Button variant="contained" color= 'secondary' sx={{borderRadius: 15, padding: '7px 20px', fontSize: {xs: '10px', sm: '12px', md: '16px'}, mt: 1}}>Заказать звонок</Button>
