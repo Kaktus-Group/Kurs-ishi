@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const DataProducts = [
   {
-    type: "Pitsa",
+    type: "Пицца",
     products: [
       {
         Name: "Bucco",
@@ -40,7 +40,7 @@ const DataProducts = [
     ],
   },
   {
-    type: "Drinks",
+    type: "Напитки",
     products: [
       {
         Name: "Coca-Cola",
@@ -73,7 +73,7 @@ const DataProducts = [
     ],
   },
   {
-    type: "Soup",
+    type: "Супы",
     products: [
       {
         Name: "Chicken soup",
@@ -92,7 +92,7 @@ const DataProducts = [
     ],
   },
   {
-    type: "Salats",
+    type: "Салаты",
     products: [
       {
         Name: "Olivia",
@@ -104,7 +104,7 @@ const DataProducts = [
     ],
   },
   {
-    type: "Pastas",
+    type: "Паста",
     products: [
       {
         Name: "Alien",
@@ -116,7 +116,7 @@ const DataProducts = [
     ],
   },
   {
-    type:"Sous",
+    type:"Cоус",
     products:[
       {
         Name: "Сырный соус",

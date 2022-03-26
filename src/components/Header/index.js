@@ -1,4 +1,10 @@
-import { Button, Container, createTheme, Typography } from "@mui/material";
+import {
+  Button,
+  Container,
+  IconButton,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import Box from "@mui/material/Box";
 import React from "react";
 import DataProducts from "../../redux/reducers/DataProducts";
@@ -8,11 +14,30 @@ import yulduz from "../../assets/log/yulduz.png";
 import { NavLink } from "react-router-dom";
 import SignUp from "../Modal/SignUp";
 import { yellow } from "@mui/material/colors";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { display } from "@mui/system";
 
 export default function Header() {
+  const md = useMediaQuery("(min-width: 900px)");
+  const xs = useMediaQuery("(max-width: 600px)");
+
+  // For sign in
   const [auth, setAuth] = React.useState(false);
-  console.log(auth);
   const disableAuth = () => setAuth(false);
+
+  // Responsive Appbar
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    console.log("handleOpenNavMenu", event.currentTarget);
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
   return (
     <Container
@@ -34,11 +59,11 @@ export default function Header() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            gap: 8,
+            gap: 5,
           }}
         >
-          <img src={logo} />
-          <Box>
+          <img src={logo} alt="logo" />
+          <Box sx={{ display: { md: "block", xs: "none" } }}>
             <Box sx={{ display: "flex", gap: 1 }}>
               <Typography
                 sx={{
@@ -130,14 +155,15 @@ export default function Header() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            gap: 4,
+            gap: 2,
           }}
         >
           <Button
             sx={{
+              display: { md: "flex", xs: "none" },
               background: "#F3F3F7",
               borderRadius: "28px",
-              px: 3,
+              px: 2.5,
             }}
           >
             <Typography
@@ -153,23 +179,175 @@ export default function Header() {
               Заказать звонок
             </Typography>
           </Button>
+
           <Typography
             sx={{
+              display: { xs: "none", sm: "block" },
               color: "#F7D22D",
               fontStyle: "normal",
               fontWeight: "bold",
-              fontSize: "26px",
+              fontSize: "25px",
               lineHeight: "32px",
             }}
           >
             8 499 391-84-49
           </Typography>
+
+          {!md ? (
+            <NavLink to="/savat">
+              <Button
+                sx={{
+                  display: { xs: "none", sm: "flex" },
+                  background: "#F7D22D",
+                  borderRadius: "8px",
+                  "&:hover": {
+                    backgroundColor: yellow[600],
+                  },
+                }}
+              >
+                <Typography
+                  sx={{
+                    background: "#F7D22D",
+                    borderRadius: "8px",
+                    color: "#231F20",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                  }}
+                >
+                  Корзина | 1
+                </Typography>
+              </Button>
+            </NavLink>
+          ) : (
+            ""
+          )}
+
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+              sx={{
+                padding: 0.5,
+              }}
+            >
+              <MenuIcon fontSize="240px" />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{
+                display: { xs: "flex", md: "none" },
+                '.css-6hp17o-MuiList-root-MuiMenu-list': {
+                  padding: {xs: '15px 0', sm: '15px 10px'},
+                  backgroundColor: {xs: '#F7D22D', sm: '#fff'},
+                  display: {xs: 'flex', sm: 'block'},
+                  flexDirection: 'column',
+                  alignItems: 'center'
+                }
+              }}
+            >
+              {DataProducts.map((item) => (
+                <MenuItem key={item} onClick={handleCloseNavMenu}>
+                  <Typography
+                    sx={{
+                      width: "75px",
+                      fontStyle: "normal",
+                      fontWeight: 500,
+                      fontSize: "16px",
+                      lineHeight: "18px",
+                      cursor: "pointer",
+                      textAlign: {xs: 'center', sm: 'left'}                      
+                    }}
+                  >
+                    {item.type}
+                  </Typography>
+                </MenuItem>
+              ))}
+              <MenuItem key={"sinIn"} onClick={handleCloseNavMenu}>
+                <Typography
+                  onClick={() => setAuth(true)}
+                  sx={{
+                    color: {sm: "#F7D22D", xs: '#000'},
+                    fontStyle: "normal",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    lineHeight: "18px",
+                    fontWeight: 700
+                  }}
+                >
+                  Войти
+                </Typography>
+              </MenuItem>
+
+              {xs ? <MenuItem key={"phone"} onClick={handleCloseNavMenu}>
+                <Typography
+                  sx={{
+                    color: "#000",
+                    fontStyle: "normal",
+                    fontWeight: "bold",
+                    fontSize: "20px",
+                    lineHeight: "24px",
+                  }}
+                >
+                  8 499 391-84-49
+                </Typography>
+              </MenuItem> : ''}
+              
+              {xs ? <MenuItem key={"cart"} onClick={handleCloseNavMenu}>
+                <NavLink to="/savat">
+                  <Button
+                    sx={{
+                      background: "#FFF",
+                      borderRadius: "8px",
+                      "&:hover": {
+                        backgroundColor: '#fff',
+                      },
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        background: "#FFF",
+                        borderRadius: "8px",
+                        color: "#231F20",
+                        fontWeight: "bold",
+                        fontSize: "16px",
+                      }}
+                    >
+                      Корзина | 1
+                    </Typography>
+                  </Button>
+                </NavLink>
+              </MenuItem> : ''}
+              
+            </Menu>
+          </Box>
         </Box>
       </Box>
-      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+
+      <Box
+        sx={{
+          display: { md: "flex", xs: "none" },
+          justifyContent: "space-between",
+        }}
+      >
         <Box
           component="div"
-          sx={{ display: "flex", gap: "10px", alignItems: "center" }}
+          sx={{ display: "flex", gap: "20px", alignItems: "center" }}
         >
           {DataProducts.map((item) => {
             return (
@@ -179,6 +357,7 @@ export default function Header() {
                   fontWeight: 600,
                   fontSize: "15px",
                   lineHeight: "18px",
+                  cursor: "pointer",
                 }}
               >
                 {item.type}

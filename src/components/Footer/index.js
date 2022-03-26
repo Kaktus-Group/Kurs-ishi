@@ -1,5 +1,6 @@
-import { Box, Button, Container, createTheme, ThemeProvider, Typography } from "@mui/material";
 import React from "react";
+import { Box, Button, Container, createTheme, Grid, ThemeProvider, Typography } from "@mui/material";
+import useMediaQuery from '@mui/material/useMediaQuery';
 import logo from './img/logo.png';
 import footerCornerImg from './img/cornerImg.png';
 import visa from './img/visa.png';
@@ -29,6 +30,10 @@ const theme = createTheme({
                     style: {
                         border: `2px solid #E3ECF5 `,
                         borderRadius: `12px`,
+                        padding: '6px 5px',
+                        display: "inline-flex",
+                        // justifyContent: 'flex-start',
+                        // alignItems: 'center'
                     }
                 }
             ]
@@ -37,69 +42,133 @@ const theme = createTheme({
 })
 
 
+
+
 const Footer = () => {
+    const lg = useMediaQuery('(min-width: 1200px)');
+    const xs = useMediaQuery('(max-width: 600px)');
+
+    console.log('lg', lg);
+    // console.log('md', md);
+    // console.log('sm', sm);
+    console.log('xs', xs);
+
     return (
         <ThemeProvider theme={theme}>
             
-            <Container sx={{pt: 4,  pb: 7.5, position: 'relative'}}>
-                <Box sx={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 7, alignItems: 'center'}}>
-                    <Box>
-                        <img src={logo} alt="logo" width='90px' style={{display: 'inline', cursor: "pointer"}}/>
-                        <Box sx={{display: 'flex', mt: 4}}>
-                            <Typography variant="body1" component='p' sx={{fontWeight: 700}}>Калорийность и состав</Typography>
-                            <Typography variant="body1" component='p' sx={{fontWeight: 700, ml: 6.5}}>Правовая информация</Typography>
-                        </Box>
-                        <Box sx={{mt: 3}}>
-                            <Typography variant="body1" component='p' sx={{fontWeight: 700}}>Мы в соцсетях</Typography>
-                            <Box sx={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, mt: 2}}>
-                                <Typography variant="body2" component='p' sx={{color: '#0E0C0D', fontWeight: 600, opacity: 0.7, cursor: "pointer"}}>YouTube</Typography>
-                                <Typography variant="body2" component='p' sx={{color: '#0E0C0D', fontWeight: 600, opacity: 0.7, cursor: "pointer"}}>Facebook</Typography>
-                                <Typography variant="body2" component='p' sx={{color: '#0E0C0D', fontWeight: 600, opacity: 0.7, cursor: "pointer"}}>Москва ул. Проспект</Typography>
-                                <Typography variant="body2" component='p' sx={{color: '#0E0C0D', fontWeight: 600, opacity: 0.7, cursor: "pointer"}}>Instagram</Typography>
-                                <Typography variant="body2" component='p' sx={{color: '#0E0C0D', fontWeight: 600, opacity: 0.7, cursor: "pointer"}}>ВКонтакте</Typography>
-                                <Typography variant="body2" component='p' sx={{color: '#0E0C0D', fontWeight: 600, opacity: 0.7, cursor: "pointer"}}>Вернадского 86В</Typography>
-                            </Box>
-                        </Box>
-                        <Box sx={{mt: 6, display: 'flex', alignItems: "center", justifyContent: 'space-between'}}>
+            <Container sx={{pt: 4,  pb: {xs: 1.5, sm: 3.5, md: 5.5, lg: 7.5}}}>
+                <Grid container spacing={5}>
+                    <Grid item lg={6} xs={12}>
+                        <Grid container spacing={3}>
+                            <Grid item lg={12} sm={4} xs={12} sx={{paddingTop: {xs: '0px !important'}}}>
+                                <Box display={'flex'} justifyContent="space-between">
+                                    <img src={logo} alt="logo" width='90px' style={{display: 'inline', cursor: "pointer"}}/>
+                                    {xs ? <Box display={'flex'} flexDirection='column' alignItems={'flex-end'}>
+                                        <Typography variant="h4" component='h1' color='primary' sx={{fontWeight: 800, fontSize: {xs: 20, sm: 24, md: 30}}}>8 499 391-84-49</Typography>
+                                        <Button variant="contained" color= 'secondary' sx={{borderRadius: 15, padding: '7px 20px', fontSize: {xs: '10px', sm: '12px', md: '16px'}, mt: 1}}>Заказать звонок</Button>
+                                    </Box> : ''}
+                                </Box>
+                            </Grid>
+                            <Grid item lg={12} sm={8} xs={12}>
+                                <Box sx={{display: 'flex', mt: {xs: 0, md: 3, lg: 4}, justifyContent: {xs: 'space-between'}}}>
+                                    <Typography variant="body1" component='p' sx={{fontWeight: 700, fontSize: {xs: 13.5, sm: 16}}}>Калорийность и состав</Typography>
+                                    <Typography variant="body1" component='p' sx={{fontWeight: 700, ml: {sm: 6.5}, fontSize: {xs: 13.5, sm: 16}}}>Правовая информация</Typography>
+                                </Box>
+                                <Box sx={{mt: {xs: 2, md: 3}}}>
+                                    <Typography variant="body1" component='p' sx={{fontWeight: 700, fontSize: {xs: 13.5, sm: 16}}}>Мы в соцсетях</Typography>
+                                    <Box sx={{display: 'grid', gridTemplateColumns: '1fr 1fr 2fr', gap: 1, mt: 2}}>
+                                        <Typography variant="body2" component='p' sx={{color: '#0E0C0D', fontWeight: 600, fontSize: {xs: 13, sm: 16}, opacity: 0.7, cursor: "pointer"}}>YouTube</Typography>
+                                        <Typography variant="body2" component='p' sx={{color: '#0E0C0D', fontWeight: 600, fontSize: {xs: 13, sm: 16}, opacity: 0.7, cursor: "pointer"}}>Facebook</Typography>
+                                        <Typography variant="body2" component='p' sx={{color: '#0E0C0D', fontWeight: 600, fontSize: {xs: 13, sm: 16}, opacity: 0.7, cursor: "pointer"}}>Москва ул. Проспект</Typography>
+                                        <Typography variant="body2" component='p' sx={{color: '#0E0C0D', fontWeight: 600, fontSize: {xs: 13, sm: 16}, opacity: 0.7, cursor: "pointer"}}>Instagram</Typography>
+                                        <Typography variant="body2" component='p' sx={{color: '#0E0C0D', fontWeight: 600, fontSize: {xs: 13, sm: 16}, opacity: 0.7, cursor: "pointer"}}>ВКонтакте</Typography>
+                                        <Typography variant="body2" component='p' sx={{color: '#0E0C0D', fontWeight: 600, fontSize: {xs: 13, sm: 16}, opacity: 0.7, cursor: "pointer"}}>Вернадского 86В</Typography>
+                                    </Box>
+                                </Box>
+                            </Grid>
+                        </Grid>
+                        
+                        { lg ? <Box sx={{mt: 6, display: 'flex', alignItems: "center", justifyContent: 'space-between'}}>
                             <Typography variant="body2" component='p' sx={{color: '#0E0C0D', fontWeight: 600, opacity: 0.8, cursor: "pointer"}}>YaBao Все праав защищены © 2021</Typography>
                             <Box display='flex'>
                                 <img src={visa} alt="visa" style={{cursor: "pointer"}}/>
                                 <img src={paypal} alt="paypal" style={{margin: '0 24px', cursor: "pointer"}}/>
                                 <img src={mastercard} alt="mastercard" style={{cursor: "pointer"}}/>
                             </Box>
-                        </Box>
-                    </Box>
-                    <Box>
-                        <Typography variant="body1" component='p' sx={{fontWeight: 700}}>Остались вопросы? А мы всегда на связи:</Typography>
-                        <Box sx={{display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, mt: 4, mb: 6}}>
-                            <Button variant="footer">
-                                <img src={viber}v alt="viber" />
-                            </Button>
-                            <Button variant="footer">
-                                <img src={skype}v alt="skype" />
-                            </Button>
-                            <Button variant="footer">
-                                <img src={messenger}v alt="messenger" />
-                            </Button>
-                            <Button variant="footer">
-                                <img src={telegram}v alt="telegram" />
-                            </Button>
-                            <Button variant="footer">
-                                <img src={facebook}v alt="facebook" />
-                            </Button>
-                            <Button variant="footer">
-                                <img src={vKontacte}v alt="vKontacte" />
-                            </Button>
-                            <Button variant="footer" sx={{gridColumn: '3 / 5'}}>Написать нам </Button>
-                        </Box>
-                        <Typography variant="h4" component='h1' color='primary' sx={{fontWeight: 800, fontSize: 30}}>8 499 391-84-49</Typography>
-                        <Button variant="contained" color= 'secondary' sx={{borderRadius: 15, padding: '7px 28px', mt: 2.5}}>Заказать звонок</Button>
-                    </Box>
-                </Box>
+                        </Box> : ''
+                        }
+                    </Grid>
+                    <Grid item lg={6} xs={12} sx={{padding: {xs: '24px 0 0 40px !important'}}}>
+                        <Typography variant="body1" component='p' sx={{fontWeight: 700, fontSize: {xs: 13.5, sm: 16}}}>Остались вопросы? А мы всегда на связи:</Typography>
+                        <Grid container spacing={1} sx={{mt: {xs: 1, sm: 2, lg: 4}, mb: {sm: 3, lg: 6}}}>
+                            <Grid item lg={3} sm = {1.5} xs={2}>
+                                <Button fullWidth variant="footer">
+                                    <img src={viber} alt="viber" />
+                                </Button>
+                            </Grid>
+                            <Grid item lg={3} sm = {1.5} xs={2}>
+                                <Button fullWidth variant="footer">
+                                    <img src={skype} alt="skype" />
+                                </Button>
+                            </Grid>
+                            <Grid item lg={3} sm = {1.5} xs={2}>
+                                <Button fullWidth variant="footer">
+                                    <img src={messenger} alt="messenger" />
+                                </Button>
+                            </Grid>
+                            <Grid item lg={3} sm = {1.5} xs={2}>
+                                <Button fullWidth variant="footer">
+                                    <img src={telegram} alt="telegram" />
+                                </Button>
+                            </Grid>
+                            <Grid item lg={3} sm = {1.5} xs={2}>
+                                <Button fullWidth variant="footer">
+                                    <img src={facebook} alt="facebook" />
+                                </Button>
+                            </Grid>
+                            <Grid item lg={3} sm = {1.5} xs={2}>
+                                <Button fullWidth variant="footer">
+                                    <img src={vKontacte} alt="vKontacte" />
+                                </Button>
+                            </Grid>
+                            <Grid item lg={6} sm = {3} xs={12}>
+                                <Button fullWidth variant="footer" sx={{height: '100%', fontSize: {xs: 14, sm: 14, md: 16}}}>Написать нам </Button>
+                            </Grid>                       
+                        </Grid>
+                        <Grid container spacing={2} justifyContent={'space-between'} alignItems='center'>
+                            <Grid item lg={12} md={4}>
+                                {!xs ? <Typography variant="h4" component='h1' color='primary' sx={{fontWeight: 800, fontSize: {xs: 20, sm: 24, md: 30}}}>8 499 391-84-49</Typography> : ''}
+                            </Grid>
+                            <Grid item lg={12} md={4} display='flex' sx={{justifyContent: {md: 'center', lg: 'flex-start'}}}>
+                                {!xs ? <Button variant="contained" color= 'secondary' sx={{borderRadius: 15, padding: '7px 25px', fontSize: {sm: '12px', md: '16px'}}}>Заказать звонок</Button> : ''}
+                            </Grid>
+                            <Grid item lg={12} md={4}>
+                                {!lg ? !xs ?
+                                <Box display='flex' justifyContent ='flex-end' >
+                                    <img src={visa} alt="visa" style={{cursor: "pointer"}}/>
+                                    <img src={paypal} alt="paypal" style={{margin: '0 10px', cursor: "pointer"}}/>
+                                    <img src={mastercard} alt="mastercard" style={{cursor: "pointer"}}/>
+                                </Box> : '' : ''}
+                            </Grid>
+                        </Grid>
+                            {!lg ? <Box display='flex' justifyContent='space-between' alignItems='center' marginTop={3.5}>
+                                <Typography variant="body2" component='p' sx={{color: '#0E0C0D', fontSize: {xs: 11, sm: 16}, fontWeight: 600, opacity: 0.8, cursor: "pointer"}}>YaBao Все праав защищены © 2021</Typography>
+                                {xs ?  
+                                    <Box display='flex' justifyContent ='flex-end' >
+                                        <img src={visa} alt="visa" style={{width: '30px', cursor: "pointer"}}/>
+                                        <img src={paypal} alt="paypal" style={{width: '30px', margin: '0 5px', cursor: "pointer"}}/>
+                                        <img src={mastercard} alt="mastercard" style={{width: '30px', cursor: "pointer"}}/>
+                                    </Box> : ''}
+                            </Box> : ''}
+                        </Grid>
+                </Grid>
             </Container>
-            <Box position={"relative"}>
-
-                <img src={footerCornerImg} alt="corenerImg"  style={{position: 'absolute', bottom: 0, right: 0, overflow: 'hidden'}}/>
+            <Box position={"relative"} sx={{display: {xs: 'none', sm: 'block'}}}>
+                {lg ? 
+                <img src={footerCornerImg} alt="corenerImg"  style={{position: 'absolute', width: 350, bottom: 0, right: 0, overflow: 'hidden'}}/>
+                 : !xs ?
+                <img src={footerCornerImg} alt="corenerImg"  style={{position: 'absolute', width: 200, bottom: 0, right: 75, overflow: 'hidden'}}/> : ''
+                }
             </Box>
         </ThemeProvider>
     )
