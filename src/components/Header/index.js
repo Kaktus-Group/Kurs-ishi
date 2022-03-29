@@ -62,7 +62,9 @@ export default function Header() {
             gap: 5,
           }}
         >
-          <img src={logo} alt="logo" />
+          <NavLink to="/">
+            <img src={logo}  alt="logo" />
+          </NavLink>
           <Box sx={{ display: { md: "block", xs: "none" } }}>
             <Box sx={{ display: "flex", gap: 1 }}>
               <Typography

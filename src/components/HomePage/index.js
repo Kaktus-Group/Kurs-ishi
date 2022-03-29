@@ -7,11 +7,13 @@ import CenterMode from "./swiper";
 import Footer from "../Footer";
 import Header from "../Header";
 import { Button, Container, Link } from "@mui/material";
+import Delivery from "../Modal/Delivery";
 
 const HomePage = () => {
   return (
     <div>
       <Header />
+      <Delivery />
       <CenterMode />
       <News />
       <Products />
