@@ -8,6 +8,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Alert, FormControl, InputAdornment, TextField } from "@mui/material";
 import { IMaskInput } from "react-imask";
 import { useNavigate } from "react-router-dom";
+import { setUsers } from "../../redux/actions/ProductsActions";
 
 const theme = createTheme({
   palette: {
@@ -86,6 +87,10 @@ export default function SignUp(props) {
     setConfirm(e?.target?.value);
     console.log(check);
     if (confirm === Math.trunc(check / 10).toString()) {
+      let phone={
+        phone:value
+      }
+      setUsers(phone)
       setIsChecked(false);
       navigate('/user');
     } else {
