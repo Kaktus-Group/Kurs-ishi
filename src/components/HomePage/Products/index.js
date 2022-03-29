@@ -1,16 +1,29 @@
 import * as React from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { CardActionArea, Container } from "@mui/material";
-import DataProducts from "../../../redux/reducers/DataProducts";
+import { Container, Grid } from "@mui/material";
+import { useSelector } from "react-redux";
+import { Box } from "@mui/system";
+import { setKorzinka } from "../../../redux/actions/ProductsActions";
+import store from "../../../redux/store";
 function Products() {
-  const card = DataProducts;
+  
+  const card = useSelector((state) => state.news.product);
+  console.log(card);
+  const myKorzinka =(item)=>{
+    let  maxsulot = {
+      img: item.img,
+      info: item.info,
+      title:item.title,
+      price: item.Price,
+      Name:item.Name,
+      count:1,
+    }
+    setKorzinka(maxsulot)
+  }
   return (
     <div>
-      <Container>
+      { <Container>
         {card.map((item, i) => {
           return (
             <>
@@ -26,62 +39,59 @@ function Products() {
                 {item.type}
               </Typography>
 
-              <div className="flex flex-wrap gap-4">
-                {item.products.map((item1, i) => {
+                <Grid container spacing={4} sx={{my:1}}>
+                {item.products.map((item1, index) => {
                   return (
-                    <Card sx={{ maxWidth: 275, my: "16px" }} key={i}>
-                      <CardActionArea>
-                        <CardMedia
-                          sx={{
-                            height: "275px",
-                            objectFit: "cover",
-                          }}
-                          component="img"
-                          image={item1.img}
-                          alt="Pitsas"
-                        />
-                        <CardContent>
-                          <Typography
-                            gutterBottom
-                            variant="h5"
-                            component="div"
-                            sx={{
-                              color: "#797979",
+                    <Grid key={index} item xs={12} md={6} lg={3}  >
+                    <Box   sx={{ boxShadow:4}} >
+                        <img src={item1.img}  style={{
+                        height: "253px",
+                        objectFit:"cover",
+                        borderRadius:24,
+                        display: "block",
+                        marginLeft: "auto",
+                        marginRight: "auto",
+                       }} />
+                        <Typography sx={{fontStyle: "normal",
+                              my:1,fontWeight: 800,
                               fontSize: "24px",
-                            }}
-                          >
-                            {item1.Name}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            {item1.title}
-                          </Typography>
-                          <div className="flex justify-between mt-6">
-                            <Typography
-                              sx={{
-                                fontWeight: "bold",
-                                color: "#231F20",
-                                fontSize: "20px",
-                              }}
-                            >
-                              {item1.Price} so'mdan
-                            </Typography>
-                            <Button
-                              variant="contained"
-                              sx={{ background: "#F7D22D !important" }}
-                            >
-                              Savatga
-                            </Button>
-                          </div>
-                        </CardContent>
-                      </CardActionArea>
-                    </Card>
+                              lineHeight: "28px",
+                              textAlign:"center",
+                              color: "#797979",}}>
+                              {item1.Name}
+                        </Typography>
+                        <Typography sx={{fontStyle: "normal",
+                              my:1,fontWeight: 500,
+                              fontSize: "13px",
+                              lineHeight: "19px",
+                              textAlign:"left",
+                              color: "#686466",}}>
+                              {item1.title}
+                        </Typography>
+                        <Box sx={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                        <Typography sx={{fontStyle: "normal",
+                              my:1,fontWeight: 700,
+                              fontSize: "22px",
+                              lineHeight: "19px",
+                              textAlign:"left",
+                              color: "#231F20",}}>
+                              oт {item1.Price} ₽
+                        </Typography>
+                        <Button variant="contained" color="warning" 
+                        onClick={()=> myKorzinka(item1)}>
+                          korzinka
+                        </Button>
+                        </Box>
+                    </Box>
+                </Grid>
                   );
-                })}
-              </div>
+                })
+              }
+              </Grid>
             </>
           );
         })}
-      </Container>
+      </Container> }
     </div>
   );
 }

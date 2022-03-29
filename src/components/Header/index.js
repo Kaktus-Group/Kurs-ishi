@@ -381,24 +381,13 @@ export default function Header() {
           </Button>
 
           <NavLink to="/savat">
-            <Button
-              sx={{
-                background: "#F7D22D",
-                borderRadius: "8px",
-                "&:hover": {
-                  backgroundColor: yellow[600],
-                },
-              }}
-            >
-              <Typography
-                sx={{
-                  background: "#F7D22D",
-                  borderRadius: "8px",
-                  color: "#231F20",
-                  fontWeight: "bold",
-                  fontSize: "16px",
-                }}
-              >
+            <Button variant="contained" color="warning"   >
+              <Typography sx={{fontStyle: "normal",
+                              my:1,fontWeight: 700,
+                              fontSize: "16px",
+                              lineHeight: "19px",
+                              textAlign:"left",
+                              color: "#231F20",}}>
                 Корзина | 1
               </Typography>
             </Button>
