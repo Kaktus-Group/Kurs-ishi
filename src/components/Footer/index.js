@@ -31,10 +31,7 @@ const theme = createTheme({
                     style: {
                         border: `2px solid #E3ECF5 `,
                         borderRadius: `12px`,
-                        padding: '6px 5px',
-                        display: "inline-flex",
-                        // justifyContent: 'flex-start',
-                        // alignItems: 'center'
+                        padding: '5px',                       
                     }
                 }
             ]
@@ -105,32 +102,32 @@ const Footer = () => {
                         <Typography variant="body1" component='p' sx={{fontWeight: 700, fontSize: {xs: 13.5, sm: 16}}}>Остались вопросы? А мы всегда на связи:</Typography>
                         <Grid container spacing={1} sx={{mt: {xs: 1, sm: 2, lg: 4}, mb: {sm: 3, lg: 6}}}>
                             <Grid item lg={3} sm = {1.5} xs={2}>
-                                <Button fullWidth variant="footer">
+                                <Button fullWidth variant="footer" sx={{minWidth: {xs: '45px'}}} >
                                     <img src={viber} alt="viber" />
                                 </Button>
                             </Grid>
                             <Grid item lg={3} sm = {1.5} xs={2}>
-                                <Button fullWidth variant="footer">
+                                <Button fullWidth variant="footer" sx={{minWidth: {xs: '45px'}}} >
                                     <img src={skype} alt="skype" />
                                 </Button>
                             </Grid>
                             <Grid item lg={3} sm = {1.5} xs={2}>
-                                <Button fullWidth variant="footer">
+                                <Button fullWidth variant="footer" sx={{minWidth: {xs: '45px'}}} >
                                     <img src={messenger} alt="messenger" />
                                 </Button>
                             </Grid>
                             <Grid item lg={3} sm = {1.5} xs={2}>
-                                <Button fullWidth variant="footer">
+                                <Button fullWidth variant="footer" sx={{minWidth: {xs: '45px'}}} >
                                     <img src={telegram} alt="telegram" />
                                 </Button>
                             </Grid>
                             <Grid item lg={3} sm = {1.5} xs={2}>
-                                <Button fullWidth variant="footer">
-                                    <img src={facebook} alt="facebook" />
+                                <Button fullWidth variant="footer" sx={{minWidth: {xs: '45px'}}} >
+                                    <img src={facebook} alt="facebook"/>
                                 </Button>
                             </Grid>
                             <Grid item lg={3} sm = {1.5} xs={2}>
-                                <Button fullWidth variant="footer">
+                                <Button fullWidth variant="footer" sx={{minWidth: {xs: '45px'}}} >
                                     <img src={vKontacte} alt="vKontacte" />
                                 </Button>
                             </Grid>
