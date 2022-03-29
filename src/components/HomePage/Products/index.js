@@ -8,7 +8,7 @@ import { setKorzinka } from "../../../redux/actions/ProductsActions";
 import store from "../../../redux/store";
 function Products() {
   
-  const card = useSelector((state) => state.news);
+  const card = useSelector((state) => state.news.product);
   console.log(card);
   const myKorzinka =(item)=>{
     let  maxsulot = {
@@ -24,7 +24,7 @@ function Products() {
   return (
     <div>
       { <Container>
-        {card.news.map((item, i) => {
+        {card.map((item, i) => {
           return (
             <>
               <Typography

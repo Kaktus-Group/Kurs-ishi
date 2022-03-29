@@ -1,22 +1,20 @@
-import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';import React, { useState } from 'react'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button';
-import Icon from '@mui/material/Icon';
-import { Container, Grid, List, ListItem, Typography } from '@mui/material'
+import { Container, Grid,  Typography } from '@mui/material'
 import KorHeader from '../Header/KorHeader';
 import Footer from '../Footer';
 import Sous from './sous';
 import Carusel from './slick';
 import { useSelector } from 'react-redux';
-import { removeKorzinka } from '../../redux/actions/ProductsActions';
+import { decKorzinka, IncKorzinka, removeKorzinka } from '../../redux/actions/ProductsActions';
+import Promokod from './Zakas';
+
 export default function MyKor() {
   const korzinka = useSelector((state) => state.news.korzinka);
-  console.log(korzinka);
-const [count,setCount]=useState(1);
- const removeMyKorzinka=(index)=>{
-  removeKorzinka(index)
-  console.log(index)
- }
+ const removeMyKorzinka=(index)=>removeKorzinka(index)
+ const incrementCount=(index)=>IncKorzinka(index)
+ const Decrement=(index)=>decKorzinka(index)
+
 return (
       <Container>
         <KorHeader/>
@@ -25,7 +23,8 @@ return (
         Korzinka
       </Typography>
         
-        {
+        { 
+
           korzinka.map((item,index)=>(
             <Box   key={index}  sx={{py:2,alignItem:"center",display:"flex", borderBottom:"2px solid rgba(0, 0, 0, 0.06)",justifyContent:"space-between"}}>
 
@@ -50,7 +49,7 @@ return (
                 fontSize: "13px",
                 lineHeight: "19px",
                 color: "#686466",
-                
+                opacity:{xs:0,md:1}
               }}>
                 {item.title}
               </Typography>
@@ -63,7 +62,7 @@ return (
               </Typography>
               <Box sx={{display:"flex",alignItems:"center"}} >
 
-                <Button  onClick={()=>(item.count===1)?item.count=1:setCount(item.count-=1)} sx={{
+                <Button  onClick={()=>Decrement(index)} sx={{
             fontStyle: "normal",
             fontWeight: "bold",
             fontSize: "18px",
@@ -91,26 +90,25 @@ return (
             textAlign: "center",
             color: "#696F7A",
             
-          }} onClick={()=>setCount(item.count+=1)}>+</Button>
+          }} onClick={()=>incrementCount(index)}>+</Button>
               
               </Box>
               <Box sx={{
                 display:"flex",alignItems:"center"
               }} >
-                <Box  onClick={()=>{
-                  
-                  removeMyKorzinka(index)
-                }} 
+                <Box  onClick={()=>removeMyKorzinka(index) } 
                 sx={{width:"25px",height:"25px",borderRadius:"50%",border:"1px solid gray",p:0, display:"flex",alignItems:"center",justifyContent:"center",p:1 ,'&:hover':{borderColor:"orange"},  }}>
               <svg xmlns="http://www.w3.org/2000/svg" width={"15px"} height={"15px"} viewBox="0 0 384 512"><path d="M376.6 427.5c11.31 13.58 9.484 33.75-4.094 45.06c-5.984 4.984-13.25 7.422-20.47 7.422c-9.172 0-18.27-3.922-24.59-11.52L192 305.1l-135.4 162.5c-6.328 7.594-15.42 11.52-24.59 11.52c-7.219 0-14.48-2.438-20.47-7.422c-13.58-11.31-15.41-31.48-4.094-45.06l142.9-171.5L7.422 84.5C-3.891 70.92-2.063 50.75 11.52 39.44c13.56-11.34 33.73-9.516 45.06 4.094L192 206l135.4-162.5c11.3-13.58 31.48-15.42 45.06-4.094c13.58 11.31 15.41 31.48 4.094 45.06l-142.9 171.5L376.6 427.5z"/></svg>
 
               </Box>
-              </Box></Box>
+              </Box>
+              </Box>
             </Box>
           ))
         }
         <Carusel />
         <Sous />
+        <Promokod />
  </Container>
  <Footer />
       </Container>
