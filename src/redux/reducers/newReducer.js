@@ -1,4 +1,4 @@
-import { SET_CATEGORY, SET_ERROR, SET_KORZINKA,SET_DATA, REMOVE_KORZINKA, INC_KORZINKA, DEC_KORZINKA } from "../types";
+import { SET_CATEGORY, SET_ERROR, SET_KORZINKA,SET_DATA, REMOVE_KORZINKA, INC_KORZINKA, DEC_KORZINKA, SET_USERS } from "../types";
 import DataProducts from "./DataProducts"
 const initialState = {
   product: DataProducts,
@@ -25,6 +25,9 @@ const newsReducer = (state = initialState, action) => {
             return { ...state,korzinka:[...dec] };
       case SET_KORZINKA:
           return { ...state, korzinka:[...state.korzinka, action.payload] };
+      case SET_USERS :
+        return { ...state,user:[action.payload ] };
+      
 
     default:
       return state;

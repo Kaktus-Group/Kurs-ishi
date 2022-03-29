@@ -38,7 +38,7 @@ export default function SimpleSlider()  {
             loop={true}
             autoplay={{ delay: 3000 }}
             >
-            { item.type == "Pitsa" &&
+            { item.type == "Пицца" &&
               item.products.map((product)=>{
                 return(
                   

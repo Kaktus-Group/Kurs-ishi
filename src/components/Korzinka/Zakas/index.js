@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Button, TextField, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 
 
@@ -23,9 +23,18 @@ export default function Promokod(){
     }}>
     Промокод
     </Typography>
-
-    <Box>
     
+    <Box sx={{position:"relative",my:3, width:"40%"}}>
+    <input type="text" placeholder="Введите промокод" width="100%"  />
+    <Button variant="contained" color="warning" sx={{
+      position:"absolute",
+      top:0,
+      right:0,
+      zIndex:9999,
+    }}>
+    Применить
+    </Button> 
+
     </Box>
 
     </Box>

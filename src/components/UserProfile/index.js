@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Button, Card, Checkbox, Container, createTheme, FormControlLabel, InputAdornment, TextField, ThemeProvider, Typography } from "@mui/material";
 import saleImg from '../../assets/images/sale.png'
 import { IMaskInput } from "react-imask";
@@ -6,6 +6,8 @@ import { RadioButtonChecked, RadioButtonUnchecked } from "@mui/icons-material";
 import Header from "../Header";
 import Footer from "../Footer";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { setUsers } from "../../redux/actions/ProductsActions";
 
 const theme = createTheme({
     palette: {
@@ -36,7 +38,17 @@ const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
 
 const UserProfile = () => {
     let navigate = useNavigate();
+    let [value, setValue]=useState()
 
+    const user = useSelector(state=>state.news.user)
+    console.log(user);
+    const handleChange = (e) => {
+        setValue(e?.target?.value);
+      };
+    const userName= ()=>{
+        setUsers(value)
+        navigate('/')
+    }
     return (
         <Box>        
             <Header />
@@ -57,15 +69,16 @@ const UserProfile = () => {
                         component="form"
                     >
                         <Typography sx={{fontWeight: 700, fontSize: 14, mb: 0.75}}>Имя</Typography>
-                        <TextField variant="outlined" placeholder="Имя" sx={{width: '300px', mb: 3}} />
+                        <TextField onChange={handleChange} variant="outlined" placeholder="Имя" sx={{width: '300px', mb: 3}} />
 
                         <Typography sx={{fontWeight: 700, fontSize: 14, mb: 0.75}}>Номер телефона</Typography>
                         <TextField
                             id="formatted-text-mask-input"
                             sx={{width: "300px"}}
+                            disabled
                             InputProps={{
                                 startAdornment: (
-                                <InputAdornment position="start">+998</InputAdornment>
+                                <InputAdornment position="start">+998 {(user.length>0)?user[0].phone:""}</InputAdornment>
                                 ),
                                 inputComponent: TextMaskCustom,
                             }}
@@ -77,7 +90,7 @@ const UserProfile = () => {
                         <Checkbox label="Label" icon={<RadioButtonUnchecked />} checkedIcon={<RadioButtonChecked />} defaultChecked sx={{ '& .MuiSvgIcon-root': { fontSize: 18 } }}/>
                     } label="Сообщать о бонусах, акциях и новых продуктах" />
 
-                    <Button variant="contained" onClick={() => navigate('/')} color='secondary' sx={{display: 'block', mt: 5}}>Выйти</Button>
+                    <Button variant="contained" onClick={ userName} color='secondary' sx={{display: 'block', mt: 5}}>Выйти</Button>
                 </Container>
 
                 <Footer />
