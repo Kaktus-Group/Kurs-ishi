@@ -67,7 +67,7 @@ const DataProducts = [
         Name: "Coffee",
         Price: 100,
         title: "Delicious",
-        img: "https://static.turbosquid.com/Preview/2014/07/07__23_41_37/coffe_cup_preview_01.jpg6e737ca4-a947-4afb-8073-7748907cba17Original.jpg",
+        img: "https://pngicon.ru/file/uploads/kofe.png",
         info: "",
       },
     ],
@@ -79,7 +79,7 @@ const DataProducts = [
         Name: "Chicken soup",
         Price: 1000,
         title: "Taste",
-        img: "https://images.immediate.co.uk/production/volatile/sites/30/2021/03/Classic-Minestrone-Soup-13720e5.jpg?quality=90&resize=556,505",
+        img: "https://www.vippng.com/png/full/173-1731981_chicken-thai-curry.png",
         info: "",
       },
       {
@@ -123,31 +123,30 @@ const DataProducts = [
         Price: 120,
         title: "Amazing",
         img: "https://static.tildacdn.com/tild6364-6237-4162-b464-306431366337/photo.jpg",
-        info: "", 
+        info: "",
       },
       {
         Name: "Барбекю",
         Price: 120,
         title: "Amazing",
         img: "https://news.unipack.ru/light_editor_img/images/2016-7-5/file1467486852.jpg",
-        info: "", 
+        info: "",
       },
       {
         Name: "Ранч",
         Price: 120,
         title: "Amazing",
         img: "https://i.pinimg.com/originals/db/e4/b5/dbe4b508357cad8b74431737e5ad7b32.jpg",
-        info: "", 
+        info: "",
       },
       {
         Name: "Сгущёнка",
         Price: 120,
         title: "Amazing",
         img: "https://arcept.ru/sousy/domashnii-karamelny-sous-dlya-desertov/domashnii-karamelny-sous-dlya-desertov-ready0-recept.jpg",
-        info: "", 
+        info: "",
       },
-      
-    ]
-  }
+    ],
+  },
 ];
 export default DataProducts;

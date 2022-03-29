@@ -17,11 +17,12 @@ export default function Sous(){
         Соусы к бортикам и закускам
 
     </Typography>
-    <Grid container spacing={2} sx={{mb:3}}>
+    <Grid container justifyContent="center"alignItems="center" spacing={2} sx={{mb:3}}>
       {
         DataProducts.map((item)=>(
-          item.products.map((product,index)=>(
-            <Grid item xs={12} md={4} lg={3}>
+          
+          item.type=="Sous"&&item.products.map((product,index)=>(
+            <Grid item xs={6} sm={4} md={3} >
               <Card key={index}  sx={{maxWidth:"200px",}}>
       <CardActionArea>
         <CardMedia
