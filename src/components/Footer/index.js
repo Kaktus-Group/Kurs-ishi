@@ -12,7 +12,6 @@ import messenger from './img/messenger.png';
 import telegram from './img/telegram.png';
 import facebook from './img/facebook.png';
 import vKontacte from './img/vKontacte.png';
-import { NavLink } from "react-router-dom";
 
 const theme = createTheme({
     palette: {
@@ -31,7 +30,10 @@ const theme = createTheme({
                     style: {
                         border: `2px solid #E3ECF5 `,
                         borderRadius: `12px`,
-                        padding: '5px',                       
+                        padding: '6px 5px',
+                        display: "inline-flex",
+                        // justifyContent: 'flex-start',
+                        // alignItems: 'center'
                     }
                 }
             ]
@@ -60,9 +62,7 @@ const Footer = () => {
                         <Grid container spacing={3}>
                             <Grid item lg={12} sm={4} xs={12} sx={{paddingTop: {xs: '0px !important'}}}>
                                 <Box display={'flex'} justifyContent="space-between">
-                                    <NavLink to="/">
-                                        <img src={logo} alt="logo" width='90px' style={{display: 'inline', cursor: "pointer"}}/>
-                                    </NavLink>
+                                    <img src={logo} alt="logo" width='90px' style={{display: 'inline', cursor: "pointer"}}/>
                                     {xs ? <Box display={'flex'} flexDirection='column' alignItems={'flex-end'}>
                                         <Typography variant="h4" component='h1' color='primary' sx={{fontWeight: 800, fontSize: {xs: 20, sm: 24, md: 30}}}>8 499 391-84-49</Typography>
                                         <Button variant="contained" color= 'secondary' sx={{borderRadius: 15, padding: '7px 20px', fontSize: {xs: '10px', sm: '12px', md: '16px'}, mt: 1}}>Заказать звонок</Button>
@@ -102,32 +102,32 @@ const Footer = () => {
                         <Typography variant="body1" component='p' sx={{fontWeight: 700, fontSize: {xs: 13.5, sm: 16}}}>Остались вопросы? А мы всегда на связи:</Typography>
                         <Grid container spacing={1} sx={{mt: {xs: 1, sm: 2, lg: 4}, mb: {sm: 3, lg: 6}}}>
                             <Grid item lg={3} sm = {1.5} xs={2}>
-                                <Button fullWidth variant="footer" sx={{minWidth: {xs: '45px'}}} >
+                                <Button fullWidth variant="footer">
                                     <img src={viber} alt="viber" />
                                 </Button>
                             </Grid>
                             <Grid item lg={3} sm = {1.5} xs={2}>
-                                <Button fullWidth variant="footer" sx={{minWidth: {xs: '45px'}}} >
+                                <Button fullWidth variant="footer">
                                     <img src={skype} alt="skype" />
                                 </Button>
                             </Grid>
                             <Grid item lg={3} sm = {1.5} xs={2}>
-                                <Button fullWidth variant="footer" sx={{minWidth: {xs: '45px'}}} >
+                                <Button fullWidth variant="footer">
                                     <img src={messenger} alt="messenger" />
                                 </Button>
                             </Grid>
                             <Grid item lg={3} sm = {1.5} xs={2}>
-                                <Button fullWidth variant="footer" sx={{minWidth: {xs: '45px'}}} >
+                                <Button fullWidth variant="footer">
                                     <img src={telegram} alt="telegram" />
                                 </Button>
                             </Grid>
                             <Grid item lg={3} sm = {1.5} xs={2}>
-                                <Button fullWidth variant="footer" sx={{minWidth: {xs: '45px'}}} >
-                                    <img src={facebook} alt="facebook"/>
+                                <Button fullWidth variant="footer">
+                                    <img src={facebook} alt="facebook" />
                                 </Button>
                             </Grid>
                             <Grid item lg={3} sm = {1.5} xs={2}>
-                                <Button fullWidth variant="footer" sx={{minWidth: {xs: '45px'}}} >
+                                <Button fullWidth variant="footer">
                                     <img src={vKontacte} alt="vKontacte" />
                                 </Button>
                             </Grid>

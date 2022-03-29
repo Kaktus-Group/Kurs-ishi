@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import CloseIcon from "@mui/icons-material/Close";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Alert, FormControl, Grid, InputAdornment, TextField } from "@mui/material";
+import { Alert, FormControl, InputAdornment, TextField } from "@mui/material";
 import { IMaskInput } from "react-imask";
 import { useNavigate } from "react-router-dom";
 import { setUsers } from "../../redux/actions/ProductsActions";
@@ -129,7 +129,7 @@ export default function SignUp(props) {
             sx={{
               display: "flex",
               alignItems: "center",
-              // justifyContent: "space-between",
+              justifyContent: "space-between",
             }}
           >
             <Typography
@@ -137,7 +137,7 @@ export default function SignUp(props) {
               variant="h4"
               component="h1"
               color="primary"
-              sx={{ fontWeight: 700 }}
+              sx={{ fontWeight: "bold" }}
             >
               Вход на сайт
             </Typography>
@@ -146,62 +146,146 @@ export default function SignUp(props) {
               color="primary"
               sx={{
                 cursor: "pointer",
-                fontSize: {lg: 48, md: 36, xs: 28},
+                fontSize: 48,
               }}
             />
           </Box>
-          <Grid container spacing={2}
+          <Box
             sx={{
               marginTop: 3,
               display: "flex",
               alignItems: "center",
             }}
           >
-            <Grid item xs={12} md={3}>
+            <Typography
+              id="modal-modal-description"
+              variant="subtitle1"
+              component="p"
+              color="secondary"
+            >
+              Номер телефона
+            </Typography>
+            {!guard && (
+              <FormControl variant="standard">
+                <TextField
+                  value={value}
+                  onChange={handleChange}
+                  id="formatted-text-mask-input"
+                  sx={{ mx: 5, width: 200 }}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">+998</InputAdornment>
+                    ),
+                    inputComponent: TextMaskCustom,
+                  }}
+                />
+              </FormControl>
+            )}
+            {guard && (
+              <FormControl variant="standard">
+                <TextField
+                  error
+                  helperText="Incorrect entry"
+                  value={value}
+                  onChange={handleChange}
+                  id="formatted-text-mask-input"
+                  sx={{ mx: 5, width: 200 }}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">+998</InputAdornment>
+                    ),
+                    inputComponent: TextMaskCustom,
+                  }}
+                />
+              </FormControl>
+            )}
+            {submit && (
+              <Typography
+                variant="body2"
+                component="p"
+                color="primary"
+                sx={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSubmit(false);
+                  setValue("");
+                }}
+              >
+                Изменить
+              </Typography>
+            )}
+          </Box>
+          {submit && (
+            <Box
+              sx={{
+                marginTop: 5,
+                display: "flex",
+                alignItems: "center",
+                paddingBottom: 10,
+              }}
+            >
               <Typography
                 id="modal-modal-description"
                 variant="subtitle1"
                 component="p"
                 color="secondary"
               >
-                Номер телефона
+                Код из СМС
               </Typography>
-            </Grid>
-            <Grid item xs={12} md={5}>
-              {!guard ? 
-                <FormControl variant="standard">
-                  <TextField
-                    value={value}
-                    onChange={handleChange}
-                    id="formatted-text-mask-input"
-                    sx={{ width: 200 }}
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">+998</InputAdornment>
-                      ),
-                      inputComponent: TextMaskCustom,
-                    }}
-                  />
-                </FormControl> : <FormControl variant="standard">
-                  <TextField
-                    error
-                    helperText="Incorrect entry"
-                    value={value}
-                    onChange={handleChange}
-                    id="formatted-text-mask-input"
-                    sx={{ width: 200 }}
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">+998</InputAdornment>
-                      ),
-                      inputComponent: TextMaskCustom,
-                    }}
-                  />
-                </FormControl>
-              }
-            </Grid>
-            <Grid item xs={12} md={3}>
-              {submit ? 
+              {!isChecked && (
+                <TextField
+                  id="outlined-start-adornment"
+                  value={confirm}
+                  onChange={handleConfirm}
+                  sx={{ mx: 5, width: 100 }}
+                  type="number"
+                  InputProps={{
+                    inputMode: "numeric",
+                    pattern: "[0-9]*",
+                  }}
+                />
+              )}
+              {isChecked && (
+                <TextField
+                  id="outlined-start-adornment"
+                  error
+                  value={confirm}
+                  onChange={handleConfirm}
+                  sx={{ mx: 5, width: 100 }}
+                  type="number"
+                  InputProps={{
+                    inputMode: "numeric",
+                    pattern: "[0-9]*",
+                  }}
+                />
+              )}
+              {isChecked && (
+                <Alert
+                  variant="filled"
+                  severity="error"
+                  sx={{
+                    padding: "0px 10px",
+                    position: "absolute",
+                    bottom: "70px",
+                    left: "160px",
+                    fontSize: "0.65rem",
+                    ".css-1vooibu-MuiSvgIcon-root": {
+                      width: "1rem",
+                      height: "1rem",
+                    },
+                    ".css-1ytlwq5-MuiAlert-icon": {
+                      marginRight: "5px !important",
+                    },
+                  }}
+                >
+                  Неверный код
+                </Alert>
+              )}
+
+              {submit && (
                 <Typography
                   variant="body2"
                   component="p"
@@ -210,102 +294,11 @@ export default function SignUp(props) {
                     textDecoration: "underline",
                     cursor: "pointer",
                   }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setSubmit(false);
-                    setValue("");
-                  }}
                 >
-                  Изменить
+                  Получить новый код
                 </Typography>
-              : ''}
-            </Grid>
-            
-          </Grid>
-          {submit && (
-            <Grid container
-              sx={{
-                marginTop: 5,
-                display: "flex",
-                alignItems: "center",
-                paddingBottom: 10,
-              }}
-            >
-              <Grid item xs={12} md={3}>
-                <Typography
-                  id="modal-modal-description"
-                  variant="subtitle1"
-                  component="p"
-                  color="secondary"
-                >
-                  Код из СМС
-                </Typography>
-              </Grid>
-              <Grid item xs={12} md={3}>
-                {!isChecked ? 
-                  <TextField
-                    id="outlined-start-adornment"
-                    value={confirm}
-                    onChange={handleConfirm}
-                    sx={{ width: 100 }}
-                    type="number"
-                    InputProps={{
-                      inputMode: "numeric",
-                      pattern: "[0-9]*",
-                    }}
-                  />
-                : <TextField
-                    id="outlined-start-adornment"
-                    error
-                    value={confirm}
-                    onChange={handleConfirm}
-                    sx={{ width: 100 }}
-                    type="number"
-                    InputProps={{
-                      inputMode: "numeric",
-                      pattern: "[0-9]*",
-                    }}
-                  />}
-                {isChecked && (
-                  <Alert
-                    variant="filled"
-                    severity="error"
-                    sx={{
-                      padding: "0px 10px",
-                      position: "absolute",
-                      bottom: "70px",
-                      left: "160px",
-                      fontSize: "0.65rem",
-                      ".css-1vooibu-MuiSvgIcon-root": {
-                        width: "1rem",
-                        height: "1rem",
-                      },
-                      ".css-1ytlwq5-MuiAlert-icon": {
-                        marginRight: "5px !important",
-                      },
-                    }}
-                  >
-                    Неверный код
-                  </Alert>
-                )}
-              </Grid>
-              <Grid item xs={12} md={3}>
-                {submit && (
-                  <Typography
-                    variant="body2"
-                    component="p"
-                    color="primary"
-                    onClick={onSubmit}
-                    sx={{
-                      textDecoration: "underline",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Получить новый код
-                  </Typography>
-                )}
-              </Grid>
-            </Grid>
+              )}
+            </Box>
           )}
           {!submit && (
             <Box sx={{ mt: 7, display: "flex", alignItems: "center" }}>
