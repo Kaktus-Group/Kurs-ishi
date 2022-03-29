@@ -6,7 +6,7 @@ function News() {
   return (
     <Container>
       <div>
-        <p className="text-2xl font-bold my-6">Новинки</p>
+        <p className="text-2xl font-bold my-6">News</p>
 
         <div className="flex justify-between align-center flex-wrap ">
           <div className="flex justify-around py-2 my-1 px-5 shadow-lg align-center gap-3 rounded-lg">

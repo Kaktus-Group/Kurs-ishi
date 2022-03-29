@@ -13,7 +13,7 @@ function Root() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/savat" element={<MyKor />} />
-
+          <Route path="/user" element={<UserProfile />}/>
         </Routes>
 
        </BrowserRouter>
