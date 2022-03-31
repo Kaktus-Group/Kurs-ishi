@@ -37,10 +37,13 @@ const style = {
   p: 4,
 };
 
-export default function Delivery() {
-  const [open, setOpen] = React.useState(false);
+export default function Delivery(props) {
+  const [open, setOpen] = React.useState(true);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false); 
+  const handleClose = () => {
+    props.isAuth();
+    setOpen(false);
+  };
 
   return (
     <ThemeProvider theme={theme}>
