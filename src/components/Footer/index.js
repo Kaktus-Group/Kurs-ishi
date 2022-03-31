@@ -54,7 +54,7 @@ const Footer = () => {
     return (
         <ThemeProvider theme={theme}>
             
-            <Container sx={{pt: 4,  pb: {xs: 1.5, sm: 3.5, md: 5.5, lg: 7.5}}}>
+            <Container sx={{pt: 8,  pb: {xs: 1.5, sm: 3.5, md: 5.5, lg: 7.5}}}>
                 <Grid container spacing={5}>
                     <Grid item lg={6} xs={12}>
                         <Grid container spacing={3}>

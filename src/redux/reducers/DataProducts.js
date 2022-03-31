@@ -50,14 +50,14 @@ const DataProducts = [
         info: "",
       },
       {
-        Name: "Coca-Fanta",
+        Name: "Fanta-Cola",
         Price: 200,
         title: "shocked",
-        img: "https://img3.zakaz.uz/uz.1637327313.ad72436478c_2021-11-19_Tatyana_L/uz.1637327313.SNCPSG10.obj.0.1.jpg.oe.jpg.pf.jpg.1350nowm.jpg.1350x.jpg",
+        img: "https://pictures.grocerapps.com/original/grocerapp-fanta-orange-soft-drink-5f4db989a122b.jpeg",
         info: "",
       },
       {
-        Name: "Pepsi",
+        Name: "Pepsi-Cola",
         Price: 100,
         title: "Delicious",
         img: "http://maxmart.uz/image/cache/catalog/pepsi-1.5l-500x500-product_popup.jpg",

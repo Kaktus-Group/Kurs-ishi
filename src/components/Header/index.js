@@ -42,10 +42,17 @@ export default function Header() {
   let navigate = useNavigate();
 
   return (
-    <Container
+    <Box sx={{
+      position: 'sticky',
+        top:0,
+        zIndex:999999,
+        background:"#ffffff"
+    }}>
+      <Container
       sx={{
         mt: 1,
         mb: 3,
+        
       }}
     >
       <Box
@@ -431,5 +438,7 @@ export default function Header() {
       </Box>
       {auth && <SignUp isAuth={disableAuth} />}
     </Container>
+    </Box>
+    
   );
 }
