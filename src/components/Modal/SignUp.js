@@ -32,7 +32,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 650,
+  width: {xs:'95%', sm: '60%', lg: '50%', xl: '40%'},
   borderRadius: 2,
   bgcolor: "background.paper",
   boxShadow: 3,
@@ -129,7 +129,7 @@ export default function SignUp(props) {
             sx={{
               display: "flex",
               alignItems: "center",
-              // justifyContent: "space-between",
+              justifyContent: "space-between",
             }}
           >
             <Typography
@@ -137,7 +137,7 @@ export default function SignUp(props) {
               variant="h4"
               component="h1"
               color="primary"
-              sx={{ fontWeight: 700 }}
+              sx={{ fontWeight: 700, fontSize: {lg: 32, md: 28, sm: 24, xs: 24} }}
             >
               Вход на сайт
             </Typography>
@@ -146,7 +146,7 @@ export default function SignUp(props) {
               color="primary"
               sx={{
                 cursor: "pointer",
-                fontSize: {lg: 48, md: 36, xs: 28},
+                fontSize: {lg: 48, md: 36, xs: 30},
               }}
             />
           </Box>
@@ -157,7 +157,7 @@ export default function SignUp(props) {
               alignItems: "center",
             }}
           >
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} md={4}>
               <Typography
                 id="modal-modal-description"
                 variant="subtitle1"
@@ -167,14 +167,14 @@ export default function SignUp(props) {
                 Номер телефона
               </Typography>
             </Grid>
-            <Grid item xs={12} md={5}>
+            <Grid item xs={12} md={6}>
               {!guard ? 
-                <FormControl variant="standard">
+                <FormControl variant="standard" fullWidth>
                   <TextField
                     value={value}
                     onChange={handleChange}
                     id="formatted-text-mask-input"
-                    sx={{ width: 200 }}
+                    sx={{ width: {md: '90%', xs: '100%'}}}
                     InputProps={{
                       startAdornment: (
                         <InputAdornment position="start">+998</InputAdornment>
@@ -182,7 +182,7 @@ export default function SignUp(props) {
                       inputComponent: TextMaskCustom,
                     }}
                   />
-                </FormControl> : <FormControl variant="standard">
+                </FormControl> : <FormControl variant="standard" fullWidth>
                   <TextField
                     error
                     helperText="Incorrect entry"
@@ -223,7 +223,7 @@ export default function SignUp(props) {
             
           </Grid>
           {submit && (
-            <Grid container
+            <Grid container spacing={1}
               sx={{
                 marginTop: 5,
                 display: "flex",
@@ -289,7 +289,7 @@ export default function SignUp(props) {
                   </Alert>
                 )}
               </Grid>
-              <Grid item xs={12} md={3}>
+              <Grid item xs={12} md={4}>
                 {submit && (
                   <Typography
                     variant="body2"
@@ -308,25 +308,31 @@ export default function SignUp(props) {
             </Grid>
           )}
           {!submit && (
-            <Box sx={{ mt: 7, display: "flex", alignItems: "center" }}>
-              <Button
-                variant="contained"
-                onClick={onSubmit}
-                sx={{ width: "400px", padding: "10px 30px" }}
-              >
-                Выслать код
-              </Button>
-              <Typography
-                id="modal-modal-description"
-                variant="body2"
-                component="p"
-                color="secondary"
-                marginLeft={3}
-              >
-                Продолжая, вы соглашаетесь со сбором и обработкой персональных
-                данных и пользовательским соглашением
-              </Typography>
-            </Box>
+            <Grid container spacing={2} sx={{ mt: {lg: 4, sm: 2, xs: 1}, display: "flex", alignItems: "center" }}>
+              <Grid item md={4} xs={12}>
+                <Button
+                  variant="contained"
+                  onClick={onSubmit}
+                  sx={{ width: "100%", padding: "10px 30px" }}
+                >
+                  Выслать код
+                </Button>
+              </Grid>
+              <Grid item md={8} xs={12}>
+                <Typography
+                  id="modal-modal-description"
+                  variant="body2"
+                  component="p"
+                  color="secondary"
+                  // sx={{mx: {sm: 0, md: 3}, my: { xs: 2, md: 0}}}
+                >
+                  Продолжая, вы соглашаетесь со сбором и обработкой персональных
+                  данных и пользовательским соглашением
+                </Typography>
+              </Grid>
+              
+              
+            </Grid>
           )}
         </Box>
       </Modal>

@@ -30,7 +30,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 650,
+  width: {xs:'95%', sm: '60%', lg: '50%', xl: '40%'},
   borderRadius: 2,
   bgcolor: "background.paper",
   boxShadow: 3,
@@ -65,7 +65,7 @@ export default function Delivery() {
                   variant="h4"
                   component="h1"
                   color="primary"
-                  sx={{ fontWeight: "bold" }}
+                  sx={{ fontWeight: 700, fontSize: {lg: 32, md: 28, sm: 24, xs: 24} }}
                 >
                 Куда доставить?
                 </Typography>
@@ -74,7 +74,7 @@ export default function Delivery() {
                     color="primary"
                     sx={{
                         cursor: "pointer",
-                        fontSize: 48,
+                        fontSize: {lg: 48, md: 36, xs: 30},
                     }}
                 />
             </Box>
@@ -84,34 +84,42 @@ export default function Delivery() {
             }}
           >
             <Box>
-                <Button variant="contained" sx={{width: 120}}>
-                    Доставка
-                </Button>
-                <Button variant="contained" color="secondary" sx={{marginLeft: 2}}>
-                    Сомовывоз
-                </Button>
+              <Grid container spacing={2} sx={{display: 'flex', justifyContent: {xs: 'space-between', sm: 'flex-start'}}}>
+                <Grid item>
+                  <Button variant="contained" fullWidth>
+                      Доставка
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button variant="contained" color="secondary" fullWidth>
+                      Сомовывоз
+                  </Button>
+                </Grid>
+              </Grid>
+                
+                
             </Box>
-            <Grid container spacing={3} sx={{'.MuiGrid-item': {paddingTop: '18px'}, marginTop: 1}}>
-                <Grid item xs={9}>
+            <Grid container spacing={2} sx={{'.MuiGrid-item': {paddingTop: '18px'}, marginTop: 1}}>
+                <Grid item xs={8}>
                     <TextField variant="outlined" size="small" fullWidth label=" Адресс"/>
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={4}>
                     <TextField variant="outlined" size="small" label="Дом"/>
                 </Grid>
             </Grid>
-            <Grid container spacing={3} sx={{'.MuiGrid-item': {paddingTop: '10px'}, marginTop: 1}}>
-                <Grid item xs={3}>
+            <Grid container spacing={2} sx={{'.MuiGrid-item': {paddingTop: '10px'}, marginTop: 1}}>
+                <Grid item xs={6} md={3}>
                     <TextField variant="outlined" size="small" label="Дом"/>
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={6} md={3}>
                     <TextField variant="outlined" size="small" label="Дом"/>
                     <Typography color='primary' variant='subtitle2'>Последний</Typography>
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={6} md={3}>
                     <TextField variant="outlined" size="small" label="Дом"/>
                     <Typography color='primary' variant='subtitle2'>Домофон</Typography>
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={6} md={3}>
                     <TextField variant="outlined" size="small" label="Дом"/>
                     <Typography color='primary' variant='subtitle2'>Последний</Typography>
                 </Grid>
@@ -119,7 +127,7 @@ export default function Delivery() {
             <TextField variant="outlined" size="small" fullWidth sx={{marginTop: 2}} label="Название адреса"/>
             <Typography variant='body1' color='secondary.dark' sx={{marginTop: 1, fontWeight: 500}}>Например, <span style={{color: '#F7D22D'}}>Дом</span> или <span style={{color: '#F7D22D'}}>Работа</span></Typography>
             <TextField variant="outlined" size="small" fullWidth sx={{marginTop: 1}} label="Комментарий к адресу" multiline minRows={3}/>
-            <Button variant="contained" sx={{width: 210, padding: "10px", fontWeight: 700, marginTop: 4}}>
+            <Button variant="contained" sx={{width: {md: 210, xs: '100%'}, padding: "10px", fontWeight: 700, marginTop: 4}}>
               Подтевердить адрес
             </Button>
           </Box>

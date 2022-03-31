@@ -39,10 +39,10 @@ function Products() {
                 {item.type}
               </Typography>
 
-                <Grid container spacing={4} sx={{my:1}}>
+                <Grid container spacing={4} sx={{my:1, justifyContent: 'center'}}>
                 {item.products.map((item1, index) => {
                   return (
-                    <Grid key={index} item xs={12} md={6} lg={3}  >
+                    <Grid key={index} item xs={11} sm={6} lg={3}  >
                     <Box   sx={{ boxShadow:4}} >
                         <img src={item1.img}  style={{
                         height: "253px",
