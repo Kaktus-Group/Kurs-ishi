@@ -46,11 +46,11 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: {xs:'95%', sm: '80%', md: '85%', lg: '70%', xl: '50%'},
-  padding: {xs: '15px', md: '30px'},
+  width: 800,
   borderRadius: 2,
   bgcolor: "background.paper",
   boxShadow: 3,
+  p: 4,
 };
 
 export default function Order() {
@@ -74,51 +74,52 @@ export default function Order() {
                 color="primary"
                 sx={{
                     cursor: "pointer",
-                    fontSize: {lg: 40, md: 36, xs: 30},
+                    fontSize: 40,
                     position: 'absolute',
-                    right: '15px',
-                    top: '35px'
+                    right: '15px'
                 }}
             />
                    
             <Grid container spacing={1} sx={{'.MuiGrid-item': {padding: '0 10px'}, marginTop: 1}}>
-                <Grid item xs={12} md={7} sx={{display: 'flex', justifyContent: 'center'}}>
+                <Grid item xs={7}>
                    <img src={testImg} alt="test" width={400}/>
                 </Grid>
-                <Grid item xs={12} md={5}>
-                    <Typography variant="subtitle1" component='h2' color="#000" sx={{fontSize: {md: 18, sm: 16, xs: 14}, mt: {xs: 2, md: 0}}}>
+                <Grid item xs={5}>
+                    <Typography variant="subtitle1" component='h2' color="#000">
                         С креветками и трюфелями
                     </Typography>
-                    <Typography variant="subtitle2" component='h5' color="#686466" sx={{fonstSize: {xs: '12px', sm: '14px'}}}>
+                    <Typography variant="subtitle2" component='h5' color="#686466">
                         25 см, традиционное тесто, 360 г
                     </Typography>
                     <Typography variant="small" component='p' color="#686466" sx={{display: 'flex', alignItems: 'center'}}>
                         Моцарелла, соус альфредо
                         <CancelOutlinedIcon sx={{fontSize: 16, marginLeft: 0.5, cursor: 'pointer'}}/>
                     </Typography>
-                    <Grid container spacing={1} sx={{marginTop: 0.5}}>
-                        <Grid item xs={6} sm={4}>
-                            <Button variant="contained" color="primary" sx={{width: '100%', fontSize: "10px", padding: {xs: '5px 10px', sm: '5px 20px', md: '5px 30px'}}}>
+                    <Grid container spacing={2} sx={{marginTop: 0.5, '.MuiGrid-item': {paddingTop: '10px'}}}>
+                        <Grid item xs={4} sx={{padding: 0}}>
+                            <Button variant="contained" size="small" color="primary" sx={{fontSize: "11px", width: '100%', padding: '5px 45px'}}>
                                 Маленькая
                             </Button>
                         </Grid>
-                        <Grid item xs={6} sm={4}>
-                            <Button variant="contained" color="secondary" sx={{width: '100%', fontSize: "10px", padding: {xs: '5px 10px', sm: '5px 20px', md: '5px 30px'}}}>
+                        <Grid item xs={4} sx={{padding: 0}}>
+                            <Button variant="contained" size="small" color="secondary" sx={{fontSize: "11px", width: '100%', padding: '5px 45px'}}>
                                 Средняя
                             </Button>
                         </Grid>
-                        <Grid item xs={6} sm={4}>
-                            <Button variant="contained" color="secondary" sx={{width: '100%', fontSize: "10px", padding: {xs: '5px 10px', sm: '5px 20px', md: '5px 30px'}}}>
+                        <Grid item xs={4} sx={{padding: 0}}>
+                            <Button variant="contained" size="small" color="secondary" sx={{fontSize: "11px", width: '100%', padding: '5px 45px'}}>
                                 Большая
                             </Button>
                         </Grid>
-                        <Grid item xs={6} sm={6}>
-                            <Button variant="contained" color="primary" sx={{width: '100%', fontSize: "10px", padding: {xs: '5px 10px', sm: '5px 20px', md: '5px 30px'}}}>
+                    </Grid>
+                    <Grid container spacing={2} sx={{marginTop: 0.5}}>
+                        <Grid item xs={6}>
+                            <Button variant="contained" size="small" color="primary" sx={{fontSize: "11px", width: '100%', padding: '5px 70px'}}>
                                 Традиционное
                             </Button>
                         </Grid>
-                        <Grid item xs={6} sm={6}>
-                            <Button variant="contained" color="secondary" sx={{width: '100%', fontSize: "10px", padding: {xs: '5px 10px', sm: '5px 20px', md: '5px 30px'}}}>
+                        <Grid item xs={6}>
+                            <Button variant="contained" size="small" color="secondary" sx={{fontSize: "11px", width: '100%', padding: '5px 70px'}}>
                                 Тонкое
                             </Button>
                         </Grid>
@@ -128,13 +129,14 @@ export default function Order() {
                             <Button variant="outlined" sx={{width: "100%", padding: '10px 15px', display: 'flex', flexDirection: "column", alignItems: 'center'}}>
                                 <CardMedia
                                     component="img"
+                                    height="180"
                                     image={img3}
                                 />
                                 <CardContent sx={{padding: '0px !important', display: 'flex', flexDirection: "column", alignItems: 'center', marginTop: '5px'}}>
-                                    <Typography variant="subtitle1" component="p" sx={{color: '#000', fontSize: {sm: '11px', xs: '10px'}, textAlign: 'center', lineHeight: 1.5}}>
+                                    <Typography variant="subtitle1" component="p" sx={{color: '#000', fontSize: '11px', textAlign: 'center', lineHeight: 1.5}}>
                                         Острый халапенью
                                     </Typography>
-                                    <Typography variant="subtitle1" component="p" sx={{fontSize: {xs: '12px', sm: '14px'}, marginTop: '5px'}}>
+                                    <Typography variant="subtitle1" component="p" sx={{fontSize: '14px', marginTop: '5px'}}>
                                         от 120 ₽
                                     </Typography>
                                 </CardContent>
@@ -144,13 +146,14 @@ export default function Order() {
                             <Button variant="outlined" sx={{width: "100%", padding: '10px 15px', display: 'flex', flexDirection: "column", alignItems: 'center'}}>
                                 <CardMedia
                                     component="img"
+                                    height="180"
                                     image={img2}
                                 />
                                 <CardContent sx={{padding: '0px !important', display: 'flex', flexDirection: "column", alignItems: 'center', marginTop: '5px'}}>
-                                    <Typography variant="subtitle1" component="p" sx={{color: '#000', fontSize: {sm: '11px', xs: '10px'}, textAlign: 'center', lineHeight: 1.5}}>
+                                    <Typography variant="subtitle1" component="p" sx={{color: '#000', fontSize: '11px', textAlign: 'center', lineHeight: 1.5}}>
                                         Острый халапенью
                                     </Typography>
-                                    <Typography variant="subtitle1" component="p" sx={{fontSize: {xs: '12px', sm: '14px'}, marginTop: '5px'}}>
+                                    <Typography variant="subtitle1" component="p" sx={{fontSize: '14px', marginTop: '5px'}}>
                                         от 120 ₽
                                     </Typography>
                                 </CardContent>
@@ -160,20 +163,21 @@ export default function Order() {
                             <Button variant="outlined" sx={{width: "100%", padding: '10px 15px', display: 'flex', flexDirection: "column", alignItems: 'center'}}>
                                 <CardMedia
                                     component="img"
+                                    height="180"
                                     image={img1}
                                 />
                                 <CardContent sx={{padding: '0px !important', display: 'flex', flexDirection: "column", alignItems: 'center', marginTop: '5px'}}>
-                                    <Typography variant="subtitle1" component="p" sx={{color: '#000', fontSize: {sm: '11px', xs: '10px'}, textAlign: 'center', lineHeight: 1.5}}>
+                                    <Typography variant="subtitle1" component="p" sx={{color: '#000', fontSize: '11px', textAlign: 'center', lineHeight: 1.5}}>
                                         Острый халапенью
                                     </Typography>
-                                    <Typography variant="subtitle1" component="p" sx={{fontSize: {xs: '12px', sm: '14px'}, marginTop: '5px'}}>
+                                    <Typography variant="subtitle1" component="p" sx={{fontSize: '14px', marginTop: '5px'}}>
                                         от 120 ₽
                                     </Typography>
                                 </CardContent>
                             </Button>
                         </Grid>
                     </Grid>
-                    <Button variant="contained" color="primary" sx={{width:'100%', padding: {xs: '10px 12px', md: '10px 0'}, fontSize: {xs: '12px', sm: '14px'}, marginTop: {xs: 1, md: 2}}}>
+                    <Button variant="contained" color="primary" sx={{width:'100%', padding:'10px 0', marginTop: 2}}>
                         Добавить в корзину 1 048 ₽
                     </Button>
                 </Grid>
