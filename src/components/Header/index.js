@@ -11,11 +11,12 @@ import DataProducts from "../../redux/reducers/DataProducts";
 import logo from "../../assets/log/logo.jpg";
 import little from "../../assets/log/little.png";
 import yulduz from "../../assets/log/yulduz.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import SignUp from "../Modal/SignUp";
 import { yellow } from "@mui/material/colors";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
+import { useSelector } from "react-redux";
 import MenuItem from "@mui/material/MenuItem";
 import { display } from "@mui/system";
 
@@ -31,13 +32,14 @@ export default function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
-    console.log("handleOpenNavMenu", event.currentTarget);
     setAnchorElNav(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+  const {user}=useSelector(state=>state.news);
+  let navigate = useNavigate();
 
   return (
     <Container
@@ -281,19 +283,35 @@ export default function Header() {
                 </MenuItem>
               ))}
               <MenuItem key={"sinIn"} onClick={handleCloseNavMenu}>
-                <Typography
-                  onClick={() => setAuth(true)}
-                  sx={{
-                    color: {sm: "#F7D22D", xs: '#000'},
-                    fontStyle: "normal",
-                    fontWeight: "bold",
-                    fontSize: "16px",
-                    lineHeight: "18px",
-                    fontWeight: 700
-                  }}
-                >
-                  Войти
-                </Typography>
+              {
+                (user.name!=="")?
+               <NavLink to="/user">
+                  <Typography 
+                sx={{
+                  color: {sm: "#F7D22D", xs: '#000'},
+                      fontStyle: "normal",
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      lineHeight: "18px",
+                      fontWeight: 700
+                }}
+                >{user.name}</Typography>
+               </NavLink>
+                :
+                  <Typography
+                    onClick={() => setAuth(true)}
+                    sx={{
+                      color: {sm: "#F7D22D", xs: '#000'},
+                      fontStyle: "normal",
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      lineHeight: "18px",
+                      fontWeight: 700
+                    }}
+                  >
+                    Войти
+                  </Typography>
+              }
               </MenuItem>
 
               {xs ? <MenuItem key={"phone"} onClick={handleCloseNavMenu}>
@@ -368,7 +386,21 @@ export default function Header() {
           })}
         </Box>
         <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
-          <Button
+          {
+            (user.name!=="")?
+            <NavLink to="/user">
+            <Typography 
+          sx={{
+            color: {sm: "#F7D22D", xs: '#000'},
+                fontStyle: "normal",
+                fontWeight: "bold",
+                fontSize: "16px",
+                lineHeight: "18px",
+                fontWeight: 700
+          }}
+          >{user.name}</Typography>
+         </NavLink>:
+            <Button
             onClick={() => setAuth(true)}
             sx={{
               color: "#696F7A",
@@ -381,6 +413,7 @@ export default function Header() {
           >
             Войти
           </Button>
+          }
 
           <NavLink to="/savat">
             <Button variant="contained" color="warning"   >
