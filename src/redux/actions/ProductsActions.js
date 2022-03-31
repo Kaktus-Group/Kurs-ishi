@@ -1,5 +1,5 @@
 import { dispatch } from "../store";
-import {  REMOVE_KORZINKA, SET_KORZINKA, INC_KORZINKA, DEC_KORZINKA, SET_USERS,  } from "../types";
+import {  REMOVE_KORZINKA, SET_KORZINKA, INC_KORZINKA, DEC_KORZINKA, SET_USERS, ALERT,  } from "../types";
 
 
 export const setKorzinka = (korzinka) => {
@@ -8,6 +8,10 @@ export const setKorzinka = (korzinka) => {
 
 export const setUsers = (phone) => {
   dispatch({ type: SET_USERS, payload: phone });
+};
+
+export const setAlert = (phone) => {
+  dispatch({ type: ALERT, payload: phone });
 };
 
 export const removeKorzinka = (index) => {

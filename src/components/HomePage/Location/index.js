@@ -1,9 +1,8 @@
-import { Container, Paper, Typography } from "@mui/material";
+import { Container, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
 import First from "../../../assets/images/LocationFir.svg";
 import Second from "../../../assets/images/secLocation.svg";
 import Third from "../../../assets/images/thirdLoc.svg";
-import Fourth from "../../../assets/images/34.svg";
 import YandexMap from "./Map";
 import { Box } from "@mui/system";
 function Location() {
@@ -22,12 +21,20 @@ function Location() {
           >
             Оплата и доставка
           </Typography>
-          <div className="flex align-center justify-between flex-wrap mb-4">
+            <Grid container spacing={2}>
+            <Grid item xs={12} sm={6} md={4}>
             <img src={First} alt="" />
+
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
             <img src={Second} alt="" />
+
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
             <img src={Third} alt="" />
-            {/* <img src={Fourth} alt="" /> */}
-          </div>
+
+            </Grid>
+            </Grid>
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <YandexMap />
           </Box>

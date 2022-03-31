@@ -18,12 +18,23 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useSelector } from "react-redux";
 import MenuItem from "@mui/material/MenuItem";
-import { display } from "@mui/system";
 
 export default function Header() {
+  const theme = {
+    palette: {
+      warning: {
+        light: "#f8db57",
+        main: "#F7D22D",
+        dark: "#ac931f",
+        contrastText: "#fff",
+      },
+    }
+  }
+
   const md = useMediaQuery("(min-width: 900px)");
   const xs = useMediaQuery("(max-width: 600px)");
 
+  const count = useSelector(state=>state.news.korzinka)
   // For sign in
   const [auth, setAuth] = React.useState(false);
   const disableAuth = () => setAuth(false);
@@ -42,10 +53,18 @@ export default function Header() {
   let navigate = useNavigate();
 
   return (
-    <Container
+    <Box sx={{
+      position: 'sticky',
+        top:0,
+        zIndex:999999,
+        background:"#ffffff",
+        my:2
+    }}>
+      <Container
       sx={{
         mt: 1,
         mb: 3,
+        
       }}
     >
       <Box
@@ -218,7 +237,7 @@ export default function Header() {
                     fontSize: "16px",
                   }}
                 >
-                  Корзина | 1
+                  Корзина | {count.length}
                 </Typography>
               </Button>
             </NavLink>
@@ -363,6 +382,7 @@ export default function Header() {
         sx={{
           display: { md: "flex", xs: "none" },
           justifyContent: "space-between",
+          
         }}
       >
         <Box
@@ -416,14 +436,15 @@ export default function Header() {
           }
 
           <NavLink to="/savat">
-            <Button variant="contained" color="warning"   >
+            <Button variant="contained" color={'warning'}>
               <Typography sx={{fontStyle: "normal",
-                              my:1,fontWeight: 700,
+                              my:1,
+                              fontWeight: 700,
                               fontSize: "16px",
                               lineHeight: "19px",
                               textAlign:"left",
                               color: "#231F20",}}>
-                Корзина | 1
+                Корзина | {count.length}
               </Typography>
             </Button>
           </NavLink>
@@ -431,5 +452,7 @@ export default function Header() {
       </Box>
       {auth && <SignUp isAuth={disableAuth} />}
     </Container>
+    </Box>
+    
   );
 }
