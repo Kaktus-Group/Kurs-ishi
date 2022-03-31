@@ -30,7 +30,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: {xs:'95%', sm: '60%', lg: '50%', xl: '40%'},
+  width: 650,
   borderRadius: 2,
   bgcolor: "#E3ECF5;",
   boxShadow: 3,
@@ -65,7 +65,7 @@ export default function TimeDelivery() {
                   variant="h4"
                   component="h1"
                   color="#696F7A"
-                  sx={{ fontWeight: 700, fontSize: {lg: 32, md: 28, sm: 24, xs: 24}}}
+                  sx={{ fontWeight: "bold" }}
                 >
                 Время доставки
                 </Typography>
@@ -74,7 +74,7 @@ export default function TimeDelivery() {
                     color="primary"
                     sx={{
                         cursor: "pointer",
-                        fontSize: {lg: 48, md: 36, xs: 30},
+                        fontSize: 48,
                     }}
                 />
             </Box>
@@ -83,54 +83,54 @@ export default function TimeDelivery() {
               marginTop: 2,
             }}
           >            
-            <Grid container spacing={2} sx={{marginTop: 1}} >
-                <Grid item xs={12} sm={6}>
-                    <Button variant="contained" color="secondary" sx={{width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
+            <Grid container spacing={3} sx={{'.MuiGrid-item': {padding: '15px'}, marginTop: 1}}>
+                <Grid item xs={6}>
+                    <Button variant="contained" color="secondary" sx={{marginLeft: 2, width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
                         Побыстрее
                     </Button>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Button variant="contained" color="secondary" sx={{width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
+                <Grid item xs={6}>
+                    <Button variant="contained" color="secondary" sx={{marginLeft: 2, width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
                         15:00 - 15:30
                     </Button>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Button variant="contained" color="secondary" sx={{width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
+                <Grid item xs={6}>
+                    <Button variant="contained" color="secondary" sx={{marginLeft: 2, width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
                         15:00 - 15:30
                     </Button>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Button variant="contained" color="secondary" sx={{width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
+                <Grid item xs={6}>
+                    <Button variant="contained" color="secondary" sx={{marginLeft: 2, width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
                         15:00 - 15:30
                     </Button>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Button variant="contained" color="secondary" sx={{width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
+                <Grid item xs={6}>
+                    <Button variant="contained" color="secondary" sx={{marginLeft: 2, width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
                         15:00 - 15:30
                     </Button>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Button variant="contained" color="secondary" sx={{width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
+                <Grid item xs={6}>
+                    <Button variant="contained" color="secondary" sx={{marginLeft: 2, width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
                         15:00 - 15:30
                     </Button>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Button variant="contained" color="secondary" sx={{width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
+                <Grid item xs={6}>
+                    <Button variant="contained" color="secondary" sx={{marginLeft: 2, width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
                         15:00 - 15:30
                     </Button>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Button variant="contained" color="secondary" sx={{width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
+                <Grid item xs={6}>
+                    <Button variant="contained" color="secondary" sx={{marginLeft: 2, width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
                         15:00 - 15:30
                     </Button>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Button variant="contained" color="secondary" sx={{width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
+                <Grid item xs={6}>
+                    <Button variant="contained" color="secondary" sx={{marginLeft: 2, width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
                         15:00 - 15:30
                     </Button>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Button variant="contained" color="secondary" sx={{width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
+                <Grid item xs={6}>
+                    <Button variant="contained" color="secondary" sx={{marginLeft: 2, width:'100%', padding:'15px 20px', justifyContent: 'start'}}>
                         15:00 - 15:30
                     </Button>
                 </Grid>
