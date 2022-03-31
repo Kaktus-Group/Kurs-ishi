@@ -38,15 +38,15 @@ const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
 
 const UserProfile = () => {
     let navigate = useNavigate();
+    const {user}=useSelector(state=>state.news)
     let [value, setValue]=useState()
-
-    const user = useSelector(state=>state.news.user)
     console.log(user);
     const handleChange = (e) => {
         setValue(e?.target?.value);
       };
     const userName= ()=>{
-        setUsers(value)
+        user.name=value
+        setUsers(user)
         navigate('/')
     }
     return (
@@ -78,7 +78,7 @@ const UserProfile = () => {
                             disabled
                             InputProps={{
                                 startAdornment: (
-                                <InputAdornment position="start">+998 {(user.length>0)?user[0].phone:""}</InputAdornment>
+                                <InputAdornment position="start">+998 {user.phone}</InputAdornment>
                                 ),
                                 inputComponent: TextMaskCustom,
                             }}

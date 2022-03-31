@@ -9,6 +9,7 @@ import { Alert, FormControl, Grid, InputAdornment, TextField } from "@mui/materi
 import { IMaskInput } from "react-imask";
 import { useNavigate } from "react-router-dom";
 import { setUsers } from "../../redux/actions/ProductsActions";
+import { useSelector } from "react-redux";
 
 const theme = createTheme({
   palette: {
@@ -58,7 +59,7 @@ const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
 
 export default function SignUp(props) {
   let navigate = useNavigate();
-
+const {user} = useSelector(state => state.news)
   const [open, setOpen] = React.useState(true);
   const [value, setValue] = React.useState('');
   const [confirm, setConfirm] = React.useState('');
@@ -87,10 +88,8 @@ export default function SignUp(props) {
     setConfirm(e?.target?.value);
     console.log(check);
     if (confirm === Math.trunc(check / 10).toString()) {
-      let phone={
-        phone:value
-      }
-      setUsers(phone)
+      user.phone=value
+      setUsers(user)
       setIsChecked(false);
       navigate('/user');
     } else {

@@ -3,7 +3,10 @@ import DataProducts from "./DataProducts"
 const initialState = {
   product: DataProducts,
   korzinka: [],
-  user:[],
+  user:{
+    name:"",
+    phone:"",
+  },
 };
 
 const newsReducer = (state = initialState, action) => {
@@ -26,7 +29,7 @@ const newsReducer = (state = initialState, action) => {
       case SET_KORZINKA:
           return { ...state, korzinka:[...state.korzinka, action.payload] };
       case SET_USERS :
-        return { ...state,user:[action.payload ] };
+        return { ...state,user:action.payload  };
       
 
     default:

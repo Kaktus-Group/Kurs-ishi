@@ -42,7 +42,7 @@ function Products() {
                 <Grid container spacing={4} sx={{my:1}}>
                 {item.products.map((item1, index) => {
                   return (
-                    <Grid key={index} item xs={12} md={6} lg={3}  >
+                    <Grid key={index} item xs={12} sm={6} lg={3}  >
                     <Box   sx={{ boxShadow:4}} >
                         <img src={item1.img}  style={{
                         height: "253px",
@@ -68,7 +68,7 @@ function Products() {
                               color: "#686466",}}>
                               {item1.title}
                         </Typography>
-                        <Box sx={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                        <Box sx={{display:"flex",justifyContent:{xs:"start",lg:"space-between"},gap:{xs:"16px",lg:0},alignItems:"center"}}>
                         <Typography sx={{fontStyle: "normal",
                               my:1,fontWeight: 700,
                               fontSize: "22px",
