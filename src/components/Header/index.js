@@ -42,10 +42,15 @@ export default function Header() {
   let navigate = useNavigate();
 
   return (
-    <Container
+    <Box sx={{position:"sticky",
+    top:0,
+    background:"#ffffff",
+    zIndex:99999}}>
+<Container
       sx={{
         mt: 1,
         mb: 3,
+        
       }}
     >
       <Box
@@ -385,7 +390,7 @@ export default function Header() {
             );
           })}
         </Box>
-        <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
+        <Box sx={{ display: "flex", gap: "10px", alignItems: "center", mb:3}}>
           {
             (user.name!=="")?
             <NavLink to="/user">
@@ -416,13 +421,14 @@ export default function Header() {
           }
 
           <NavLink to="/savat">
-            <Button variant="contained" color="warning"   >
+            <Button variant="contained" color="warning"  >
               <Typography sx={{fontStyle: "normal",
                               my:1,fontWeight: 700,
                               fontSize: "16px",
                               lineHeight: "19px",
                               textAlign:"left",
-                              color: "#231F20",}}>
+                              color: "#231F20",
+                              }}>
                 Корзина | 1
               </Typography>
             </Button>
@@ -431,5 +437,7 @@ export default function Header() {
       </Box>
       {auth && <SignUp isAuth={disableAuth} />}
     </Container>
+    </Box>
+    
   );
 }
