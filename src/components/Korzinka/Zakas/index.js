@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import Delivery from "../../Modal/Delivery";
-import Success from "../../Modal/success";
 
 export default function Promokod() {
   const korzinka = useSelector((state) => state.news.korzinka);
@@ -15,7 +14,7 @@ export default function Promokod() {
   console.log(summa);
 
   const [auth, setAuth] = React.useState(false);
-  const [finish, setFinish] = React.useState(false)
+  const [finish, setFinish] = React.useState(false);
   const disableAuth = () => setAuth(false);
 
   return (
@@ -137,7 +136,7 @@ export default function Promokod() {
         </Button>
       </Box>
 
-      {auth && <Delivery isAuth={disableAuth} finish={setFinish}/>}
+      {auth && <Delivery isAuth={disableAuth} finish={setFinish} />}
     </Box>
   );
 }
